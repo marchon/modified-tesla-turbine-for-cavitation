@@ -2,6 +2,35 @@
  * HDD Platter Precision Flow Conditioner for Cavitation Experiments
  * Parametric OpenSCAD model — 25-platter default (fully adjustable)
  *
+ * =============================================================================
+ * 3D PRINTING NOTES (Critical for success)
+ * =============================================================================
+ * Recommended Material: PETG (best balance of strength, chemical resistance, 
+ *                         low warping). ASA is excellent alternative for outdoor/UV.
+ *                         Avoid PLA for functional parts (too brittle, poor temp resistance).
+ *
+ * Recommended Settings:
+ *   - Layer height: 0.2 mm (0.15 mm for critical mating surfaces)
+ *   - Infill: 30-40% Gyroid or Cubic (higher on HVAT blades & bearing housers)
+ *   - Perimeters: 4-5 (important for pressure tightness and strength)
+ *   - Top/Bottom layers: 5-6
+ *   - Print orientation: Flat on base (this file is designed for it)
+ *   - Supports: None required if printed as intended
+ *   - Brim: 8-10 mm recommended on first layer for large parts
+ *
+ * Critical Tolerances in this file:
+ *   - Bearing bore: +0.10 to +0.15 mm interference for press fit (608ZZ)
+ *   - Platter cavity: +1.5 to +2.0 mm total clearance
+ *   - Nozzle slits: Aim for clean edges, no elephant's foot
+ *
+ * Post-processing:
+ *   - Lightly sand mating faces if needed for flatness
+ *   - Clean all holes thoroughly
+ *   - Anneal PETG (optional but recommended for better chemical/heat resistance)
+ *
+ * Print time estimate (PETG, 0.2mm, 35% infill): ~18-22 hours for main housing.
+ * =============================================================================
+ *
  * This is the main housing + 6 tangential nozzles + central HVAT hub + diffuser.
  * Designed for stationary (or very lightly rotating) use as a scientific
  * low-turbulence spiral flow injector into a cavitation chamber.

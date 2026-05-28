@@ -4,11 +4,16 @@ This guide walks you through printing, preparing, and assembling the 25-platter 
 
 ## 1. Print All Parts
 
-Use the separate OpenSCAD modules in `scad/`. Recommended settings:
-- Material: PETG (preferred) or ABS
-- Layer height: 0.2 mm
-- Infill: 25–40% (higher on structural parts like HVAT blades and bearing housers)
-- Supports: Only where absolutely necessary (the designs avoid them where possible)
+**→ See the comprehensive guide: [docs/printing_guide.md](printing_guide.md)**
+
+The short version:
+- **Best material**: PETG (ASA is excellent alternative)
+- Use the separate OpenSCAD modules in `scad/`
+- Layer height: 0.2 mm (0.12-0.15 mm for spacers and bearing bores)
+- Infill: 30–50% (higher on HVAT blades and bearing housers)
+- Supports: Not required on these designs
+
+**Important:** Print a few test spacers and a bearing bore test ring **before** doing the full job. Spacer thickness and bearing bore are the most critical dimensions.
 
 **Required prints (default 25-platter config):**
 

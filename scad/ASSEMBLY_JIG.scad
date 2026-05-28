@@ -2,6 +2,26 @@
  * ASSEMBLY_JIG.scad
  * Flat assembly jig that holds the platter stack perfectly straight during clamping.
  * Critical for even gaps and alignment.
+ *
+ * =============================================================================
+ * 3D PRINTING NOTES
+ * =============================================================================
+ * This part must be very flat and rigid.
+ *
+ * Material: PETG or ABS. Needs good stiffness.
+ *
+ * Settings:
+ *   - Layer height: 0.2 mm is fine
+ *   - Infill: 35-40%
+ *   - Perimeters: 5 (needs to stay flat under clamping force)
+ *   - Print flat on the large face
+ *   - Use a good first layer (critical for flatness)
+ *
+ * Post-processing:
+ *   - Check flatness with a straight edge after printing
+ *   - Sand bottom if necessary
+ * =============================================================================
+ *
  * From the May 2026 Grok design conversation.
  */
 

@@ -3,6 +3,30 @@
  * 1.0 mm default (24 required for 25 platters @ 1 mm gap)
  * Lightening holes for material savings + easier printing
  * Parametric — change thickness or OD for your build
+ *
+ * =============================================================================
+ * 3D PRINTING NOTES (Highest precision requirement)
+ * =============================================================================
+ * THIS IS ONE OF THE MOST CRITICAL PARTS FOR PERFORMANCE.
+ * Gap consistency directly affects flow quality.
+ *
+ * Material: PETG preferred. Must be dimensionally stable.
+ *
+ * Settings for Precision:
+ *   - Layer height: 0.12 - 0.15 mm (critical for thickness accuracy)
+ *   - First layer height: 0.2 mm max
+ *   - Perimeters: 4
+ *   - Infill: 100% or very high (these are thin)
+ *   - **Print all 24+ at once** on the same plate for consistency
+ *   - Use same filament spool for the entire batch
+ *
+ * Tolerance Target: ±0.03 to ±0.05 mm thickness
+ * - Measure a sample with digital calipers after printing
+ * - If consistently thick: adjust flow rate down 2-4%
+ * - If elephant's foot present: increase first layer height or use compensation
+ *
+ * Print 26-28 pieces. You will want spares.
+ * =============================================================================
  */
 
 module platter_spacer(od=95, thickness=1.0, id=30) {

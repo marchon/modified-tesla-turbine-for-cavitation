@@ -8,6 +8,8 @@ directly from the May 2026 Grok conversation PDF (22 pages).
 Modified-Tesla-Turbine-For-Cavitation/
 ├── PROJECT_STRUCTURE.md                 # This file — full indented hierarchy with descriptions
 ├── README.md                            # High-level project overview, quick start, credits to Grok conversation + Greenyer/MFMP
+├── PRINTING.md                          # Quick 3D printing reference (materials + settings)
+├── docs/printing_guide.md               # Full detailed printing guide (per-part recommendations, slicer profiles, troubleshooting, tolerances)
 ├── DESIGN_NOTES.md                      # Detailed rationale, geometry choices, trade-offs, and open questions from the chat
 ├── LICENSE                              # MIT (software/docs) + CERN OHL-S-2 note (hardware designs)
 ├── Makefile                             # Convenient targets: make diagrams / docs / latex / clean

@@ -4,6 +4,30 @@
  * Savonius drag scoops (bottom, for starting torque) + Helical Darrius (lift, smooth running)
  * Used as active flow straightener / mixer in the central exhaust of the HDD platter stack.
  *
+ * =============================================================================
+ * 3D PRINTING NOTES (Critical)
+ * =============================================================================
+ * Material: PETG or ASA strongly recommended. Needs to survive long-term rotation
+ *           and occasional contact with fluids.
+ *
+ * Settings:
+ *   - Layer height: 0.15 - 0.2 mm (finer layers improve blade surface quality)
+ *   - Infill: 40-50% Gyroid (high strength needed on blades)
+ *   - Perimeters: 5+
+ *   - Print orientation: Flat on the large face (best layer adhesion on blades)
+ *   - Supports: None (design is self-supporting)
+ *   - Brim: Recommended (8mm)
+ *
+ * Critical Features:
+ *   - Blade thickness ~1.8-2.2mm — do not thin further
+ *   - Central bore must be clean and round for shaft fit
+ *   - Bottom Savonius scoops are the most stress-critical area
+ *
+ * Post-processing:
+ *   - Lightly sand blade leading/trailing edges for better flow
+ *   - Balance the rotor if possible (important for high-speed runs)
+ * =============================================================================
+ *
  * Print separately and mount on central shaft (3-5 mm carbon fiber or steel) with bearings.
  * Designed for low-friction free rotation or light braking.
  *

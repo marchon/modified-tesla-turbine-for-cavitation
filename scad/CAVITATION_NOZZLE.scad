@@ -5,6 +5,24 @@
  * Creates strong pressure drop + shear right at the exit for controlled bubble inception.
  *
  * Multiple orifice inserts (6/8/10/12 mm throat) for tuning intensity.
+ *
+ * =============================================================================
+ * 3D PRINTING NOTES
+ * =============================================================================
+ * Material: PETG or ASA (needs good chemical resistance and surface finish).
+ *
+ * Critical for Performance:
+ *   - Internal surfaces should be as smooth as possible
+ *   - Throat diameter is the most important dimension — print orifices at 0.15mm layers
+ *   - Use high detail settings on the converging/diverging sections
+ *
+ * Recommended:
+ *   - Layer height: 0.15-0.2 mm
+ *   - Infill: 40%
+ *   - Print orifices separately with 100% infill for best dimensional accuracy
+ *   - Lightly sand or polish internal flow path after printing (optional but beneficial)
+ * =============================================================================
+ *
  * From the May 2026 Grok design conversation.
  */
 
