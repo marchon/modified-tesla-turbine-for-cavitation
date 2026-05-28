@@ -36,6 +36,22 @@ Section view of the Venturi profile and the complete set of interchangeable orif
 
 Critical tool that guarantees perfectly straight stacking and uniform 1.0 mm gaps.
 
+## Bearing Housers
+
+![Bearing Housers Drawing](_static/engineering_drawing_bearing_housers.png)
+
+**Files:** `scad/BEARING_HOUSERS.scad`
+
+Upper and lower 608ZZ bearing housers with mounting flanges.
+
+## Small Critical Parts (Spacers, Covers, Viewport)
+
+![Small Parts Drawing](_static/engineering_drawing_small_parts.png)
+
+**Files:** `scad/SPACER_RING.scad`, `SHIPPING_INSERTS.scad`, `CLEAR_VIEWPORT.scad`, `OPERATION_COVERS.scad`
+
+All the small but essential parts that make repeatable high-precision builds possible.
+
 ## Exploded Assembly View
 
 ![Exploded Assembly](_static/exploded_assembly.png)

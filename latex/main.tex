@@ -91,6 +91,68 @@ By inverting the usual purpose of a Tesla disc stack and adding a modest active 
 
 Future work includes full CFD validation, integrated instrumentation, deuterium-specific protocols, and systematic comparison against simpler injection methods using the same ultrasonic + foil diagnostics that have become standard in the field.
 
+\section{Fabrication Package \& Engineering Drawings}
+
+All components are designed for straightforward FDM 3D printing in PETG or ABS. The drawings below document the complete set of printable parts for the default 25-platter configuration.
+
+\subsection{Main Housing and Nozzles}
+The primary structural element contains six tangential inlets at approximately 10° from true tangent. Figure~\ref{fig:housing} shows the orthographic and isometric views.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{engineering_drawing_housing}
+\caption{Main housing engineering drawing — Top and Front orthographic views with isometric simulation of the printed part.}
+\label{fig:housing}
+\end{figure}
+
+\subsection{Hybrid VAWT (HVAT) Rotor}
+The central active flow straightener combines Savonius starting scoops with helical Darrius blades (Figure~\ref{fig:hvat}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{engineering_drawing_hvat}
+\caption{HVAT hybrid rotor — multi-view engineering drawing and 3D printed part simulation.}
+\label{fig:hvat}
+\end{figure}
+
+\subsection{Cavitation Nozzle and Orifice Family}
+The interchangeable orifices (6--12 mm) allow tuning of jet velocity and bubble dynamics without reprinting the entire nozzle (Figure~\ref{fig:nozzle}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{engineering_drawing_nozzle}
+\caption{Cavitation jet nozzle — Venturi section view and complete set of orifice inserts.}
+\label{fig:nozzle}
+\end{figure}
+
+\subsection{Assembly Tooling and Small Parts}
+Critical small parts (Figure~\ref{fig:small}) ensure repeatable, high-precision builds.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{engineering_drawing_small_parts}
+\caption{Spacer rings, shipping inserts, clear viewport, and solid covers — essential for gap control and safe transport.}
+\label{fig:small}
+\end{figure}
+
+\subsection{Exploded and Assembled Views}
+Figures~\ref{fig:exploded} and \ref{fig:assembled} provide overall understanding of how the device goes together.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{exploded_assembly}
+\caption{Exploded assembly view showing the logical stacking and mounting order of all major components.}
+\label{fig:exploded}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{assembled_device_simulation}
+\caption{3D simulation of the fully assembled device with platter stack and HVAT rotor visible.}
+\label{fig:assembled}
+\end{figure}
+
+\newpage
 \section*{References}
 \begin{itemize}
     \item Tesla, N. (1913). \textit{Fluid propulsion}. US Patent 1,061,142.

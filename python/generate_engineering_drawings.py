@@ -457,12 +457,146 @@ def generate_assembled_simulation():
     save_fig(fig, "assembled_device_simulation")
 
 
+# =============================================================================
+# 7. Bearing Housers (Upper + Lower)
+# =============================================================================
+def generate_bearing_housers_drawing():
+    fig, axes = plt.subplots(1, 2, figsize=(11, 5))
+    fig.suptitle("Bearing Housers — Upper & Lower (608ZZ)\nPress-fit + Flanged Mounting", fontsize=11, fontweight='bold')
+
+    for idx, (ax, title, h) in enumerate([
+        (axes[0], "UPPER BEARING HOUSER", 8),
+        (axes[1], "LOWER BEARING HOUSER (thicker base)", 10)
+    ]):
+        ax.set_title(title, fontweight='bold')
+        ax.set_aspect('equal')
+        ax.set_xlim(-25, 25)
+        ax.set_ylim(-5, 20)
+
+        # Main cylinder (press fit bore)
+        ax.add_patch(Rectangle((-12, 0), 24, h, fill=False, edgecolor='#2c3e50', lw=1.5))
+        # Flange
+        ax.add_patch(Rectangle((-16, 0), 32, 3, fill=False, edgecolor='#e67e22', lw=1.5))
+
+        # Bore (for 608ZZ)
+        ax.add_patch(Rectangle((-4.1, -1), 8.2, h+2, fill=False, edgecolor='#c0392b', lw=1.2, linestyle='--'))
+
+        ax.text(0, h/2, "Ø24 mm\nPress-fit\nfor 608ZZ", ha='center', va='center', fontsize=7, color='#2c3e50')
+        ax.text(0, 1.5, "Flange Ø32 mm", ha='center', fontsize=7, color='#e67e22')
+
+        draw_dimension(ax, (-16, -3), (16, -3), "32 mm flange", offset=2)
+        draw_dimension(ax, (13, 0), (13, h), f"{h} mm height", offset=3)
+
+        ax.grid(True, alpha=0.2, linestyle=':')
+
+    plt.tight_layout()
+    save_fig(fig, "engineering_drawing_bearing_housers")
+
+
+# =============================================================================
+# 8. Spacers, Covers & Viewport (small but critical parts)
+# =============================================================================
+def generate_small_parts_drawing():
+    fig = plt.figure(figsize=(12, 7))
+    fig.suptitle("Small Critical Parts — Spacers, Shipping Inserts, Covers & Viewport", fontsize=11, fontweight='bold')
+
+    # Spacer Ring
+    ax1 = fig.add_subplot(2, 3, 1)
+    ax1.set_title("SPACER RING (1.0 mm)", fontweight='bold')
+    ax1.set_aspect('equal')
+    ax1.set_xlim(-55, 55)
+    ax1.set_ylim(-55, 55)
+    ax1.add_patch(Circle((0, 0), 47.5, fill=False, edgecolor='#27ae60', lw=2))
+    ax1.add_patch(Circle((0, 0), 15, fill=False, edgecolor='black', lw=1, linestyle='--'))
+    for i in range(6):
+        angle = i * 60 + 30
+        rad = math.radians(angle)
+        ax1.add_patch(Circle((32*math.cos(rad), 32*math.sin(rad)), 3, fill=False, edgecolor='gray', lw=0.8))
+    ax1.text(0, 0, "1.0 mm\nthick", ha='center', va='center', fontsize=8)
+    draw_dimension(ax1, (-47.5, -52), (47.5, -52), "95 mm OD", offset=5)
+
+    # Shipping Insert
+    ax2 = fig.add_subplot(2, 3, 2)
+    ax2.set_title("SHIPPING INSERT (1.4 mm)", fontweight='bold')
+    ax2.set_aspect('equal')
+    ax2.set_xlim(-55, 55)
+    ax2.set_ylim(-55, 55)
+    ax2.add_patch(Circle((0, 0), 47.5, fill=False, edgecolor='#e74c3c', lw=2))
+    ax2.add_patch(Circle((0, 0), 15, fill=False, edgecolor='black', lw=1, linestyle='--'))
+    ax2.text(0, 0, "1.4 mm\n(thicker for\ntransport)", ha='center', va='center', fontsize=7, color='#c0392b')
+
+    # Clear Viewport
+    ax3 = fig.add_subplot(2, 3, 3)
+    ax3.set_title("CLEAR VIEWPORT PLATE", fontweight='bold')
+    ax3.set_aspect('equal')
+    ax3.set_xlim(-60, 60)
+    ax3.set_ylim(-60, 60)
+    ax3.add_patch(Circle((0, 0), 61.5, fill=False, edgecolor='#3498db', lw=2))
+    ax3.add_patch(Circle((0, 0), 17, fill=False, edgecolor='black', lw=1, linestyle='--'))
+    for i in range(6):
+        angle = i * 60 + 15
+        rad = math.radians(angle)
+        ax3.add_patch(Circle((39*math.cos(rad), 39*math.sin(rad)), 2.1, fill=False, edgecolor='black', lw=0.8))
+    ax3.text(0, 0, "Clear PETG\n(for visual\ninspection)", ha='center', va='center', fontsize=7)
+
+    # Solid Top Cover
+    ax4 = fig.add_subplot(2, 3, 4)
+    ax4.set_title("SOLID TOP COVER", fontweight='bold')
+    ax4.set_aspect('equal')
+    ax4.set_xlim(-60, 60)
+    ax4.set_ylim(-60, 60)
+    ax4.add_patch(Circle((0, 0), 61.5, fill=False, edgecolor='#7f8c8d', lw=2))
+    for i in range(6):
+        angle = i * 60 + 15
+        rad = math.radians(angle)
+        ax4.add_patch(Circle((39*math.cos(rad), 39*math.sin(rad)), 2.1, fill=False, edgecolor='black', lw=0.8))
+    ax4.text(0, 0, "Solid cover\n(no viewport)", ha='center', va='center', fontsize=7)
+
+    # Bottom Jet Cover
+    ax5 = fig.add_subplot(2, 3, 5)
+    ax5.set_title("BOTTOM JET COVER (with orifice)", fontweight='bold')
+    ax5.set_aspect('equal')
+    ax5.set_xlim(-60, 60)
+    ax5.set_ylim(-60, 60)
+    ax5.add_patch(Circle((0, 0), 61.5, fill=False, edgecolor='#7f8c8d', lw=2))
+    ax5.add_patch(Circle((0, 0), 6, fill=False, edgecolor='#e74c3c', lw=2))
+    ax5.text(0, 0, "Orifice\nØ6-12 mm", ha='center', va='center', fontsize=7, color='#c0392b')
+
+    # Notes
+    ax6 = fig.add_subplot(2, 3, 6)
+    ax6.axis('off')
+    notes = """
+PRINT NOTES (all parts)
+• Material: PETG preferred
+• Layer: 0.2 mm
+• Infill: 30-40%
+• No supports needed on most
+
+CRITICAL TOLERANCES
+• Spacer thickness: ±0.05 mm
+  (use good filament & calibration)
+• Bearing bore: +0.10 mm interference
+• All bolt holes: 4.2 mm (M4 clearance)
+"""
+    ax6.text(0.05, 0.95, notes, transform=ax6.transAxes, fontsize=7.2,
+             verticalalignment='top', family='monospace',
+             bbox=dict(boxstyle='round', facecolor='#fef9e7', edgecolor='#f4d03f'))
+
+    plt.tight_layout()
+    save_fig(fig, "engineering_drawing_small_parts")
+
+
+# =============================================================================
+# Main entry point
+# =============================================================================
 if __name__ == "__main__":
     print("Generating engineering drawings and part illustrations...")
     generate_housing_drawing()
     generate_hvat_drawing()
     generate_nozzle_drawing()
     generate_jig_drawing()
+    generate_bearing_housers_drawing()
+    generate_small_parts_drawing()
     generate_exploded_view()
     generate_assembled_simulation()
     print(f"\nAll illustrations written to {OUT_DIR}/")
