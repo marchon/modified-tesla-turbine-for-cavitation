@@ -250,7 +250,10 @@ Full BOM, step-by-step assembly, and testing protocol live in the documentation.
 
 - `scad/` — All parametric OpenSCAD modules (main housing + nozzles + HVAT blades + bearing housers + spacers + jigs + cavitation nozzle + viewport + shipping inserts). Fully documented.
 - `docs/` — Sphinx documentation (theory, design rationale, build guide, OpenSCAD reference, experimental protocols, LENR context).
-- `latex/` — Technical report / whitepaper with equations, figures, and references.
+- `latex/` — Technical report / whitepaper with equations, figures, and references (source).
+- `pdfs/` — Final built PDFs for easy browsing and download on GitHub:
+  - Full 63-page Sphinx documentation book (title page + TOC + cross-reference index)
+  - 12-page formal LaTeX technical report
 - `diagrams/` — Vector flow schematics, cross-sections, velocity profiles, assembly exploded views, cavitation number plots (generated from code).
 - `python/` — Simple physics models (Reynolds number in gaps, cavitation index, spiral velocity estimator, diagram generators).
 - `data/` — BOM.csv, material notes, references to Greenyer videos/papers.

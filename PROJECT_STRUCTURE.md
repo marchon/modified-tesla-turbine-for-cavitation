@@ -19,6 +19,9 @@ Modified-Tesla-Turbine-For-Cavitation/
 ├── LICENSE                              # MIT (software/docs) + CERN OHL-S-2 note (hardware designs)
 ├── Makefile                             # Convenient targets: make diagrams / docs / latex / clean
 ├── .gitignore                           # Comprehensive ignores for Python, Sphinx, LaTeX, OpenSCAD exports, IDE, etc.
+├── pdfs/                                # Final built PDFs for easy GitHub browsing and direct download (auto-populated by make targets)
+│   ├── Modified_Tesla_Turbine_for_Cavitation_-_Full_Documentation.pdf   # 63-page complete Sphinx docs (title page + TOC + cross-reference)
+│   └── Modified_Tesla_Turbine_for_Cavitation_-_Technical_Report.pdf     # 12-page formal LaTeX technical report with equations & figures
 │
 ├── data/
 │   └── BOM.csv                          # Complete bill of materials (25 platters + all printed parts + hardware) from conversation
@@ -97,7 +100,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 │
 ├── latex/
 │   ├── main.tex                         # Full technical report/whitepaper (abstract, equations, design, references) — compiles cleanly
-│   ├── main.pdf                         # Generated PDF (intermediate - final version copied to pdfs/)
+│   ├── main.pdf                         # Intermediate build artifact (final polished version is automatically copied to pdfs/)
 │   └── figures/
 │       ├── tikz_cross_section.tex       # High-quality TikZ version of the cross-section (for inclusion in papers)
 │       └── tikz_nozzle_angle.tex        # TikZ nozzle angle diagram
@@ -188,7 +191,7 @@ See the full flat tree below for every file with descriptions.
 
 - `scad/` — Every distinct module the chat produced or referenced is a separate, well-commented .scad file so users can render/export only what they need.
 - `docs/` — Practical, experiment-focused documentation (build + test protocols) alongside theory.
-- `latex/` — A real, citable technical report suitable for sharing with the MFMP community or uploading to research archives.
+- `latex/` — A real, citable technical report suitable for sharing with the MFMP community or uploading to research archives. The final PDFs from both Sphinx and LaTeX are automatically placed in `pdfs/` for direct GitHub viewing and downloads.
 - `diagrams/` + `python/` — Reproducible figures and simple engineering models (not full CFD — that is future work).
 - Everything is parametric and open so the community can iterate (different platter counts, metal versions, integrated sensors, etc.).
 
@@ -196,8 +199,9 @@ See the full flat tree below for every file with descriptions.
 
 ```bash
 make diagrams          # matplotlib + TikZ sources
-make latex             # pdflatex (requires TeX Live)
-make docs              # after `pip install -r requirements-docs.txt` in a venv
+make latex             # pdflatex → also copies final PDF to pdfs/
+make docs-pdf          # full Sphinx documentation book → also copies to pdfs/
+make docs              # HTML version (for local browsing)
 ```
 
 This structure directly implements the request in the original Grok conversation: a complete, professional, replicable open-hardware project with Sphinx documentation, LaTeX report, diagrams, and all the OpenSCAD files discussed.

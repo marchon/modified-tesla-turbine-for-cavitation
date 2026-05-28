@@ -43,5 +43,5 @@ jobs:
         with:
           name: documentation
           path: |
-            latex/main.pdf
+            pdfs/
             docs/_build/html/

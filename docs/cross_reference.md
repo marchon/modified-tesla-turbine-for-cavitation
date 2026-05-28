@@ -119,6 +119,7 @@ Key top-level directories you will touch:
 - `scad/` + `scad/cd_dvd_version/` — All parametric CAD
 - `python/` — Generators for drawings, DXFs, graphs, animations, models
 - `docs/` — This Sphinx site (source of the PDF you are reading)
+- `pdfs/` — Final built PDFs (Full Documentation book + Technical Report) — directly viewable on GitHub
 - `illustrations/` — All publication-ready figures
 - `configs/` — Ready-to-use example parameter sets (aggressive, gentle, maximum uniformity, CD/DVD rapid proto)
 - `calibration_test_pieces/` — Must-print tolerance verification parts
@@ -126,7 +127,7 @@ Key top-level directories you will touch:
 - `dxf_exports/` — 2D fabrication data
 - `fabrication/pcbway/` — CNC metal quote package
 - `data/BOM.csv` — Master bill of materials
-- `latex/` — Separate formal technical report (different scope from this PDF)
+- `latex/` — Separate formal technical report (different scope from this PDF; final versions copied to pdfs/)
 
 ---
 
