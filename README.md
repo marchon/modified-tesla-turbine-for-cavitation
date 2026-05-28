@@ -1,10 +1,25 @@
 # Modified Tesla Turbine for Cavitation — Precision HDD Platter Flow Conditioner
 
+**TL;DR:**  
+This is an interesting open hardware design idea with nice documentation and tooling.  
+The performance graphs are speculative models, not data.  
+The author has not built or tested it.  
+Do not treat this as a proven better way to do cavitation experiments — yet.
+
 > **⚠️ Critical Notice (Please Read First)**  
 > This is an **open design exploration**, not a validated scientific instrument.  
 > All performance graphs and models are simplified conceptual estimates only.  
 > There is currently no experimental data from the author.  
 > → Read the full **[Project Status & Limitations](docs/project_status_and_limitations.md)** before using or citing this work.
+
+**Maturity Snapshot (May 2026)**
+
+| Area                        | Status          | Can You Rely On It? |
+|----------------------------|-----------------|---------------------|
+| Physical design & docs     | Good            | Yes (for building) |
+| Performance models/graphs  | Conceptual only | No |
+| Experimental validation    | None by author  | No |
+| Proven better than simple injection | Unknown    | No — untested |
 
 **Open hardware precision gas/liquid injection device for repeatable hydrodynamic (and hybrid ultrasonic) cavitation experiments**, optimized for LENR/cavitation research in the style of Bob Greenyer and the Martin Fleischmann Memorial Project (MFMP).
 
