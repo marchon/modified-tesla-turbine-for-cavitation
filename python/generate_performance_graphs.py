@@ -161,6 +161,66 @@ Start here:
     plt.close()
     print("  → whatif_scenarios.png + .svg (with strong disclaimers)")
 
+    # === Additional what-if: HVAT Brake vs Estimated Bubble Size / Cavitation Intensity ===
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    brake = np.linspace(0, 100, 100)
+    # Very rough qualitative model:
+    # - Higher brake → less swirl → more stable, somewhat smaller & more uniform bubbles (in many cavitation studies)
+    # - Low brake → more chaotic large-scale vortices → wider bubble size distribution, larger average bubbles
+    mean_bubble_size = 100 - 0.45 * brake + 8 * np.sin(brake / 12)   # artificial oscillation for realism
+    bubble_size_variation = 35 - 0.25 * brake   # variation decreases with better conditioning
+
+    ax.plot(brake, mean_bubble_size, 'b-', linewidth=2, label="Estimated mean bubble diameter (arbitrary units)")
+    ax.fill_between(brake, mean_bubble_size - bubble_size_variation, 
+                    mean_bubble_size + bubble_size_variation, 
+                    alpha=0.25, label="Estimated bubble size distribution width")
+
+    ax.set_xlabel("HVAT Brake Position (% locked)")
+    ax.set_ylabel("Relative Bubble Size / Variation")
+    ax.set_title("Effect of HVAT Brake on Estimated Bubble Size Distribution\n(Software Model — For Exploration Only)")
+    ax.legend(loc='upper right')
+    ax.grid(True, alpha=0.3)
+    ax.axvline(35, color='green', linestyle='--', alpha=0.7, label="Recommended starting point (~35%)")
+
+    plt.figtext(0.5, 0.02,
+                "DISCLAIMER: This is a highly simplified conceptual model. Real bubble size distributions in cavitation are complex "
+                "and depend on many factors (gas content, surface tension, turbulence spectrum, acoustic field if hybrid, etc.). "
+                "Use only as a starting point for hypothesis generation. Always validate experimentally.",
+                ha="center", fontsize=8, style='italic', color='#c0392b',
+                bbox=dict(boxstyle="round", facecolor="#fadbd8", alpha=0.9))
+
+    plt.tight_layout(rect=[0, 0.1, 1, 0.95])
+    plt.savefig(os.path.join(OUT_DIR, "hvat_brake_bubble_size.png"), dpi=160, bbox_inches='tight')
+    plt.savefig(os.path.join(OUT_DIR, "hvat_brake_bubble_size.svg"), bbox_inches='tight')
+    plt.close()
+    print("  → hvat_brake_bubble_size.png + .svg (HVAT brake vs bubble size)")
+
+    # One more scenario: Number of discs vs estimated pressure drop
+    fig, ax = plt.subplots(figsize=(10, 5))
+    discs = np.arange(8, 42, 2)
+    # Rough model: more discs = more wall friction + more flow resistance
+    delta_p = 12 + 0.9 * (discs - 8)**0.85
+
+    ax.plot(discs, delta_p, 'purple', marker='s', markersize=5)
+    ax.set_xlabel("Number of Discs")
+    ax.set_ylabel("Estimated Relative Pressure Drop (arbitrary units)")
+    ax.set_title("Effect of Stack Height (Number of Discs) on System Pressure Drop\n(Simplified Model)")
+    ax.grid(True, alpha=0.3)
+    ax.axvline(25, color='gray', linestyle='--', alpha=0.6, label="Default 25 discs")
+
+    plt.figtext(0.5, 0.02,
+                "Note: This is a rough scaling estimate. Actual pressure drop also depends strongly on gap size, surface roughness, "
+                "and nozzle design. Useful for understanding trade-offs between conditioning quality and driving pressure required.",
+                ha="center", fontsize=8, style='italic',
+                bbox=dict(boxstyle="round", facecolor="#d5f5e3", alpha=0.85))
+
+    plt.tight_layout(rect=[0, 0.1, 1, 0.95])
+    plt.savefig(os.path.join(OUT_DIR, "disc_count_pressure_drop.png"), dpi=160, bbox_inches='tight')
+    plt.savefig(os.path.join(OUT_DIR, "disc_count_pressure_drop.svg"), bbox_inches='tight')
+    plt.close()
+    print("  → disc_count_pressure_drop.png + .svg")
+
 if __name__ == "__main__":
     print("Generating performance sensitivity graphs...")
     plot_performance_curves()

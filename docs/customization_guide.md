@@ -99,11 +99,87 @@ write_spacer_ring_dxf("my_custom_spacer.dxf", od=120, id=16, thickness=1.3)
 
 Then run the script. The resulting DXF can be used directly for laser cutting alternative spacers (e.g., from thin plastic sheet or metal).
 
+## 4. Before / After OpenSCAD Examples for Common Modifications
+
+Here are practical before-and-after diffs for the most common useful changes.
+
+### Example A: Switch from Default 25 platters @ 1.0 mm gap to a taller, gentler stack (32 platters @ 1.4 mm gap)
+
+**Before (default):**
+```scad
+num_platters = 25;
+gap = 1.0;
+```
+
+**After:**
+```scad
+num_platters = 32;   // +7 discs → more parallel channels
+gap = 1.4;           // gentler flow, easier printing
+```
+
+Expected outcome: Smoother time-averaged flow, lower shear per channel, easier to manufacture spacers.
+
+### Example B: More aggressive cavitation (smaller nozzle angle + smaller orifice)
+
+**Before:**
+```scad
+nozzle_angle = 10;
+```
+
+**After (in the cavitation nozzle file as well):**
+```scad
+nozzle_angle = 7;    // stronger spiral
+```
+
+Then in your cavitation nozzle usage:
+```scad
+cavitation_jet_nozzle(..., throat_d=6);   // instead of 8 mm
+```
+
+Expected: Higher jet velocity and lower cavitation number → more violent bubble collapse.
+
+### Example C: Maximize HVAT conditioning effect (larger rotor for CD/DVD version)
+
+In `scad/cd_dvd_version/CD_DVD_Flow_Conditioner.scad`:
+
+**Before:**
+```scad
+hv_dia = 32;
+```
+
+**After:**
+```scad
+hv_dia = 36;   // larger rotor for stronger swirl conditioning
+```
+
+Remember to also adjust the corresponding hub and bearing houser files in the same folder.
+
+### Example D: Quick prototyping with CD/DVD version (fewer discs)
+
+In `scad/cd_dvd_version/CD_DVD_Flow_Conditioner.scad`:
+
+**Before:**
+```scad
+num_discs = 20;
+```
+
+**After (for very fast iteration):**
+```scad
+num_discs = 12;   // shorter stack, faster prints, good for initial tuning
+```
+
+This is excellent when you want to test multiple gap or angle combinations quickly.
+
+**Pro tip**: Keep your "golden" working parameters in a separate text file or commented block at the top of each SCAD file so you can easily switch between "research mode" and "rapid prototype mode".
+
+
 ## 3. Visual "Customization Quick Reference" Diagram
 
 A diagram has been generated showing the main control knobs and their primary effects:
 
-**Location**: `illustrations/performance_graphs/customization_quick_reference.png` (and .svg)
+**Location**: 
+- `illustrations/performance_graphs/customization_quick_reference.png` (and .svg)
+- Printable one-page A4 PDF: `illustrations/performance_graphs/Customization_Quick_Reference_Printable.pdf` (also in `docs/_static/`)
 
 It is also embedded in the Sphinx documentation under the Tools and Software section for easy navigation.
 
