@@ -25,9 +25,11 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── CD_DVD_Flow_Conditioner.scad     # Main housing + nozzles adapted for CD/DVD
 │   └── CD_DVD_Spacer.scad
 │
-├── calibration_test_pieces/             # Calibration prints to achieve tight tolerances
+├── calibration_test_pieces/             # Expanded calibration prints to achieve tight tolerances
 │   ├── Spacer_Thickness_Calibration.scad
-│   └── Bearing_Bore_Calibration.scad
+│   ├── Bearing_Bore_Calibration.scad
+│   ├── Nozzle_Throat_Calibration.scad
+│   └── Flatness_Test_Plate.scad
 │   ├── HDD_Platter_Cavitation_Conditioner.scad   # Main housing + 6 tangential nozzles (~10°) + HVAT hub + diffuser (parametric master)
 │   ├── HVAT_BLADES.scad                 # Hybrid Savonius + helical Darrius rotor (active flow straightener, not power extractor)
 │   ├── BEARING_HOUSERS.scad             # Upper & lower 608ZZ bearing housers with flanges (press-fit + mounting)

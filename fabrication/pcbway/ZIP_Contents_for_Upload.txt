@@ -1,0 +1,28 @@
+Recommended ZIP structure for PCBWay upload:
+
+Modified-Tesla-Turbine-Flow-Conditioner_PCBWay_Package/
+
+├── PCBWay_Design_Spec_and_Upload_Guide.md   ← Main document to read first
+├── ZIP_Contents_for_Upload.txt
+
+├── STL_Files_HDD_Version/          (Export these yourself from OpenSCAD at high $fn)
+│   ├── Main_Housing.stl
+│   ├── HVAT_Blades.stl
+│   ├── Bearing_Housers.stl
+│   ├── Spacers_1.0mm.stl (batch)
+│   └── ...
+
+├── STL_Files_CD_DVD_Version/
+│   ├── CD_DVD_Main_Housing.stl
+│   ├── CD_DVD_Spacers.stl
+│   └── ...
+
+├── Source_OpenSCAD/
+│   ├── scad/
+│   └── scad/cd_dvd_version/
+
+├── Calibration_Pieces/
+│   └── calibration_test_pieces/
+
+└── Slicer_Profiles/                (Reference only)
+    └── slicer_profiles/
