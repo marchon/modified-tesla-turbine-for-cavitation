@@ -12,6 +12,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 ├── PROJECT_STRUCTURE.md                 # This file — full indented hierarchy with descriptions
 ├── README.md                            # High-level project overview, quick start, credits to Grok conversation + Greenyer/MFMP
 ├── PRINTING.md                          # Quick 3D printing reference (materials + settings)
+├── Im-Impatient-So-Just-Get-Me-Started.md   # Absolute minimum quickstart for impatient builders (what you are building + full BOM + printed parts list + assembly diagrams + instructions)
 ├── docs/printing_guide.md               # Full detailed printing guide (per-part recommendations, slicer profiles, troubleshooting, tolerances)
 ├── docs/how_to_print_precise_spacers.md # Deep dive on hitting ±0.05mm spacer tolerance (the hardest dimension)
 ├── DESIGN_NOTES.md                      # Detailed rationale, geometry choices, trade-offs, and open questions from the chat
