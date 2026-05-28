@@ -38,6 +38,16 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── reynolds_number.png/.svg         # Re(gap) vs. flow rate for air and water
 │   └── nozzle_angle.png/.svg            # Visual explanation of the critical 8–12° (10° default) nozzle angle
 │
+├── illustrations/                       # Engineering drawings + part simulations (orthographic + isometric)
+│   ├── engineering_drawing_housing.png/.svg   # Main housing + 6 nozzles — Top/Front + isometric render
+│   ├── engineering_drawing_hvat.png/.svg      # HVAT hybrid rotor (Savonius + Darrius) — full multi-view
+│   ├── engineering_drawing_nozzle.png/.svg    # Venturi cavitation nozzle + full orifice insert family
+│   ├── engineering_drawing_jig.png/.svg       # Assembly jig (critical alignment tool)
+│   ├── exploded_assembly.png/.svg             # Exploded view of all major printed components
+│   └── assembled_device_simulation.png/.svg   # 3D simulation of complete assembled device
+│
+├── python/generate_engineering_drawings.py    # Programmatic generator for all engineering drawings above
+│
 ├── latex/
 │   ├── main.tex                         # Full technical report/whitepaper (abstract, equations, design, references) — compiles cleanly
 │   ├── main.pdf                         # Generated PDF (148 KB)
@@ -52,6 +62,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── build.md                         # Detailed print settings + step-by-step assembly instructions (from chat)
 │   ├── testing.md                       # Greenyer/MFMP-style testing protocol (air characterization → hybrid ULTR → advanced)
 │   ├── ultrasonic_hybrid.md             # ULTR integration details, transducer recommendations, expected signatures
+│   ├── engineering_drawings.md          # All CAD objects as professional engineering drawings + 3D part simulations
 │   ├── references.md                    # All exact video links, Substack, LENR-Forum threads from the original PDF conversation
 │   └── _static/                         # Static assets (copied diagrams for easy inclusion in docs)
 │

@@ -12,6 +12,7 @@ design
 build
 testing
 ultrasonic_hybrid
+engineering_drawings
 openscad
 references
 ```
