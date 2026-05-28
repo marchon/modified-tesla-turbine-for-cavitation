@@ -26,6 +26,12 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   └── CD_DVD_Spacer.scad
 │
 ├── calibration_test_pieces/             # Expanded calibration prints to achieve tight tolerances
+│
+├── configs/                             # Ready-to-use example parameter sets
+│   ├── aggressive_cavitation/
+│   ├── gentle_high_throughput/
+│   ├── maximum_uniformity/
+│   └── rapid_prototyping_cd_dvd/
 │   ├── Spacer_Thickness_Calibration.scad
 │   ├── Bearing_Bore_Calibration.scad
 │   ├── Nozzle_Throat_Calibration.scad

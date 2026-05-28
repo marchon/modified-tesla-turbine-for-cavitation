@@ -221,6 +221,58 @@ Start here:
     plt.close()
     print("  → disc_count_pressure_drop.png + .svg")
 
+    # === New: Surface Roughness Assumptions ===
+    fig, ax = plt.subplots(figsize=(10, 5))
+    roughness = np.linspace(0.1, 5.0, 50)  # relative roughness (arbitrary scale, 1.0 = polished HDD platter)
+    # Rough model: higher roughness → earlier transition to turbulence, more damping of organized spiral
+    effective_reduction = 85 * np.exp(-0.6 * roughness)   # how much organized swirl survives
+    ax.plot(roughness, effective_reduction, 'darkorange', linewidth=2.5)
+    ax.axvline(1.0, color='green', linestyle='--', alpha=0.7, label="Polished HDD platter (baseline)")
+    ax.axvline(3.5, color='red', linestyle=':', alpha=0.7, label="Typical CD/DVD surface")
+    ax.set_xlabel("Relative Surface Roughness (lower = smoother)")
+    ax.set_ylabel("Estimated Retention of Organized Spiral Flow (%)")
+    ax.set_title("Effect of Surface Roughness on Flow Conditioning Quality\n(Conceptual Model)")
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+
+    plt.figtext(0.5, 0.02,
+                "DISCLAIMER: Extremely simplified. Real roughness effects are complex and frequency-dependent in turbulent flows. "
+                "Polished HDD platters are significantly superior to most CD/DVD surfaces in this regard.",
+                ha="center", fontsize=8, style='italic', color='#c0392b',
+                bbox=dict(boxstyle="round", facecolor="#fadbd8", alpha=0.9))
+
+    plt.tight_layout(rect=[0, 0.1, 1, 0.95])
+    plt.savefig(os.path.join(OUT_DIR, "surface_roughness_effect.png"), dpi=160, bbox_inches='tight')
+    plt.savefig(os.path.join(OUT_DIR, "surface_roughness_effect.svg"), bbox_inches='tight')
+    plt.close()
+    print("  → surface_roughness_effect.png + .svg")
+
+    # === New: Hybrid Ultrasonic + Hydrodynamic Interaction (Conceptual) ===
+    fig, ax = plt.subplots(figsize=(10, 5))
+    pre_conditioning = np.linspace(0, 100, 100)  # 0 = raw bubbling, 100 = excellent platter + HVAT conditioning
+    # Conceptual: Better pre-conditioning can enhance or stabilize ultrasonic cavitation effects
+    enhancement_factor = 0.6 + 0.8 * (pre_conditioning / 100)**0.6   # saturation curve
+    ax.plot(pre_conditioning, enhancement_factor, 'teal', linewidth=2.5)
+    ax.fill_between(pre_conditioning, 0.8, enhancement_factor, alpha=0.2, color='teal')
+    ax.set_xlabel("Pre-conditioning Quality from Platter Device (0 = poor, 100 = excellent)")
+    ax.set_ylabel("Relative Enhancement of Ultrasonic Cavitation Effects (conceptual)")
+    ax.set_title("Hybrid Hydrodynamic + Ultrasonic Synergy\n(How good the flow from the device is before ultrasound is applied)")
+    ax.grid(True, alpha=0.3)
+    ax.axvline(70, color='purple', linestyle='--', alpha=0.7, label="Good platter + moderate HVAT brake")
+
+    plt.figtext(0.5, 0.02,
+                "DISCLAIMER: Highly conceptual. Based on literature suggesting that controlled microbubble injection and reduced "
+                "large-scale turbulence can improve reproducibility and intensity of ultrasonic cavitation effects. "
+                "This is one of the main motivations for the platter + HVAT design.",
+                ha="center", fontsize=8, style='italic', color='#c0392b',
+                bbox=dict(boxstyle="round", facecolor="#d6eaf8", alpha=0.9))
+
+    plt.tight_layout(rect=[0, 0.1, 1, 0.95])
+    plt.savefig(os.path.join(OUT_DIR, "hybrid_ultrasonic_synergy.png"), dpi=160, bbox_inches='tight')
+    plt.savefig(os.path.join(OUT_DIR, "hybrid_ultrasonic_synergy.svg"), bbox_inches='tight')
+    plt.close()
+    print("  → hybrid_ultrasonic_synergy.png + .svg")
+
 if __name__ == "__main__":
     print("Generating performance sensitivity graphs...")
     plot_performance_curves()

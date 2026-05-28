@@ -244,6 +244,17 @@ These behaviors are consistent with boundary layer theory and observed behavior 
 4. Use the Python tools to predict the effect of one change at a time.
 5. Modify only that parameter, rebuild, and compare results.
 
+### Ready-to-Use Example Configurations
+
+For convenience, several pre-tuned configurations are provided in the `configs/` directory:
+
+- `aggressive_cavitation/` — Maximize collapse intensity
+- `gentle_high_throughput/` — High flow with milder conditions
+- `maximum_uniformity/` — Best conditioning quality
+- `rapid_prototyping_cd_dvd/` — Fast iteration using cheap discs
+
+Each folder contains a modified `.scad` file + a README explaining the rationale and expected behavior. Copy the file into your working directory to use it.
+
 This systematic approach is exactly what makes the device valuable for serious cavitation research.
 
 All source files are designed to make this kind of iterative experimentation as frictionless as possible.
