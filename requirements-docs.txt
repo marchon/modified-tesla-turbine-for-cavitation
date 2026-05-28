@@ -4,6 +4,9 @@ furo>=2024.0
 myst-parser>=3.0
 sphinxcontrib-plantuml>=0.27
 
+# PDF generation (WeasyPrint path for reliable single-volume book output)
+weasyprint>=60.0
+
 # For Python models / diagram generation
 numpy
 matplotlib

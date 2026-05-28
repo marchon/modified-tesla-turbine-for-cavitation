@@ -10,7 +10,7 @@ This guide shows exactly how to modify the design for different experimental goa
 
 Open the file and edit the top section:
 
-```scad
+```text
 // ==================== PARAMETERS (tweak these) ====================
 platter_od = 95;           // mm — actual Enterprise 3.5" platter diameter
 num_platters = 25;         // change this for taller/shorter stack
@@ -39,7 +39,7 @@ After editing, press **F6** (Render), then **File → Export → Export as STL**
 
 Similar parameters, but tuned for 120 mm discs:
 
-```scad
+```text
 disc_od = 120;
 disc_thickness = 1.2;
 num_discs = 20;            // Often fewer discs than HDD version because discs are thicker
@@ -106,13 +106,13 @@ Here are practical before-and-after diffs for the most common useful changes.
 ### Example A: Switch from Default 25 platters @ 1.0 mm gap to a taller, gentler stack (32 platters @ 1.4 mm gap)
 
 **Before (default):**
-```scad
+```text
 num_platters = 25;
 gap = 1.0;
 ```
 
 **After:**
-```scad
+```text
 num_platters = 32;   // +7 discs → more parallel channels
 gap = 1.4;           // gentler flow, easier printing
 ```
@@ -122,17 +122,17 @@ Expected outcome: Smoother time-averaged flow, lower shear per channel, easier t
 ### Example B: More aggressive cavitation (smaller nozzle angle + smaller orifice)
 
 **Before:**
-```scad
+```text
 nozzle_angle = 10;
 ```
 
 **After (in the cavitation nozzle file as well):**
-```scad
+```text
 nozzle_angle = 7;    // stronger spiral
 ```
 
 Then in your cavitation nozzle usage:
-```scad
+```text
 cavitation_jet_nozzle(..., throat_d=6);   // instead of 8 mm
 ```
 
@@ -143,12 +143,12 @@ Expected: Higher jet velocity and lower cavitation number → more violent bubbl
 In `scad/cd_dvd_version/CD_DVD_Flow_Conditioner.scad`:
 
 **Before:**
-```scad
+```text
 hv_dia = 32;
 ```
 
 **After:**
-```scad
+```text
 hv_dia = 36;   // larger rotor for stronger swirl conditioning
 ```
 
@@ -159,12 +159,12 @@ Remember to also adjust the corresponding hub and bearing houser files in the sa
 In `scad/cd_dvd_version/CD_DVD_Flow_Conditioner.scad`:
 
 **Before:**
-```scad
+```text
 num_discs = 20;
 ```
 
 **After (for very fast iteration):**
-```scad
+```text
 num_discs = 12;   // shorter stack, faster prints, good for initial tuning
 ```
 

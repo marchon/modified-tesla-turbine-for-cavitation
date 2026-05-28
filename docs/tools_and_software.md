@@ -35,7 +35,7 @@ These scripts use:
 
 ## 3D Printing & Slicing
 
-See the dedicated [Printing Guide](printing_guide.md) and [Quick Reference](../PRINTING.md).
+See the dedicated [Printing Guide](printing_guide) and the root [PRINTING.md](https://github.com/marchon/modified-tesla-turbine-for-cavitation/blob/main/PRINTING.md) in the repository.
 
 Profile templates are provided in `slicer_profiles/` for:
 - Bambu Studio / Orca Slicer (JSON)
@@ -149,7 +149,7 @@ docs/
 └── theory_and_value.md
 ```
 
-See the root [PROJECT_STRUCTURE.md](../PROJECT_STRUCTURE.md) for the complete tree.
+See the root [PROJECT_STRUCTURE.md](https://github.com/marchon/modified-tesla-turbine-for-cavitation/blob/main/PROJECT_STRUCTURE.md) for the complete tree.
 
 ---
 

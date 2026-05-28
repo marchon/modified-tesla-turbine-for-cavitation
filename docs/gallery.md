@@ -7,16 +7,16 @@ This page serves as a central visual reference for the HDD Platter Precision Flo
 These sectional renderings reveal internal geometry and flow paths.
 
 ### Housing Internal Cutaway
-![Housing Cutaway](_static/housing_cutaway_3d.png)
+![Housing Cutaway](_static/cutaways/housing_cutaway_3d.png)
 
 ### Full Assembly Flow Path Cutaway
-![Full Assembly Cutaway](_static/full_assembly_cutaway_3d.png)
+![Full Assembly Cutaway](_static/cutaways/full_assembly_cutaway_3d.png)
 
 ### HVAT Rotor Detail
-![HVAT Detail Cutaway](_static/hvat_detail_cutaway_3d.png)
+![HVAT Detail Cutaway](_static/cutaways/hvat_detail_cutaway_3d.png)
 
 ### Cavitation Nozzle Internal
-![Nozzle Cutaway](_static/nozzle_internal_cutaway_3d.png)
+![Nozzle Cutaway](_static/cutaways/nozzle_internal_cutaway_3d.png)
 
 ## Flow Path Animation
 

@@ -10,22 +10,61 @@ Built around a stack of 25 highly polished Enterprise 3.5" HDD platters (Tesla-s
 
 ```{toctree}
 :maxdepth: 2
-:caption: Contents
+:caption: Front Matter
 
 project_status_and_limitations
+quickstart
+
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Design & Theory
+
 design
+design_comparison_hdd_vs_cddvd
 theory_and_value
+
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Implementation & Customization
+
 tools_and_software
 customization_guide
 software_bill_of_materials
-operation_setup_tune_test
+
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Building, Printing & Assembly
+
+printing_guide
+how_to_print_precise_spacers
 build
+
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Operation, Testing & Extensions
+
+operation_setup_tune_test
 testing
 ultrasonic_hybrid
+
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: Visual Reference & Further Reading
+
 engineering_drawings
 gallery
-openscad
 references
+cross_reference
 ```
 
 ## Quick Highlights
