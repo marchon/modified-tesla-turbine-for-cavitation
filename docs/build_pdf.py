@@ -202,6 +202,14 @@ def build_pdf():
     print(f"   Features : titlepage + TOC + full content + cross-reference at back")
     print(f"   Generated: {datetime.now().isoformat(timespec='seconds')}")
 
+    # Also copy to top-level pdfs/ with a stable, nice name for GitHub browsing
+    import shutil
+    pdfs_dir = DOCS_DIR.parent / "pdfs"
+    pdfs_dir.mkdir(exist_ok=True)
+    target = pdfs_dir / "Modified_Tesla_Turbine_for_Cavitation_-_Full_Documentation.pdf"
+    shutil.copy2(PDF_PATH, target)
+    print(f"   Also copied to: {target}")
+
 
 if __name__ == "__main__":
     clean_build()

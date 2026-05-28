@@ -25,11 +25,11 @@ venv/
 ENV/
 env/
 
-# Sphinx
+# Sphinx build artifacts (everything except what we manually copy to pdfs/)
 docs/_build/
 docs/_static/
 
-# LaTeX
+# LaTeX intermediate + generated files
 latex/*.aux
 latex/*.log
 latex/*.out
@@ -37,6 +37,9 @@ latex/*.toc
 latex/*.pdf
 latex/figures/*.pdf
 latex/figures/*.aux
+
+# Note: Final polished PDFs live in pdfs/ (intentionally tracked for direct GitHub browsing)
+# See Makefile targets docs-pdf and latex for how they are populated.
 
 # OpenSCAD
 scad/*.stl

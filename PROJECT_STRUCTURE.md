@@ -97,7 +97,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 │
 ├── latex/
 │   ├── main.tex                         # Full technical report/whitepaper (abstract, equations, design, references) — compiles cleanly
-│   ├── main.pdf                         # Generated PDF (148 KB)
+│   ├── main.pdf                         # Generated PDF (intermediate - final version copied to pdfs/)
 │   └── figures/
 │       ├── tikz_cross_section.tex       # High-quality TikZ version of the cross-section (for inclusion in papers)
 │       └── tikz_nozzle_angle.tex        # TikZ nozzle angle diagram

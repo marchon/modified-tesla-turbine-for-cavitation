@@ -319,4 +319,4 @@ Build it. Test it. Share the data. Let's give Bob Greenyer (and the broader comm
 - [OpenSCAD Master File](scad/HDD_Platter_Cavitation_Conditioner.scad)
 - [Assembly Instructions](docs/build.md)
 - [Testing Protocol for Greenyer-Style Experiments](docs/testing.md)
-- [LaTeX Technical Report](latex/main.pdf) (after build)
+- [LaTeX Technical Report](pdfs/Modified_Tesla_Turbine_for_Cavitation_-_Technical_Report.pdf) (after build)

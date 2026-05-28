@@ -27,6 +27,10 @@ $(PDF): $(TEX) references.bib
 	@echo "=== Third LaTeX pass (for references) ==="
 	$(LATEX) $(TEX)
 	@echo "=== Done: $(PDF) ==="
+	@echo "=== Copying to pdfs/ for GitHub browsing ==="
+	mkdir -p ../pdfs
+	cp $(PDF) "../pdfs/Modified_Tesla_Turbine_for_Cavitation_-_Technical_Report.pdf"
+	@echo "=== Final PDF also available at: ../pdfs/Modified_Tesla_Turbine_for_Cavitation_-_Technical_Report.pdf ==="
 
 clean:
 	rm -f *.aux *.log *.out *.toc *.bbl *.blg *.bcf *.run.xml *.fdb_latexmk *.fls
