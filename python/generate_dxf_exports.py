@@ -32,25 +32,29 @@ def write_dxf_header(f):
 def write_dxf_footer(f):
     f.write("0\nENDSEC\n0\nEOF\n")
 
-def circle(f, cx, cy, r, layer="0"):
+def circle(f, cx, cy, r, layer="CUT"):
     f.write(f"0\nCIRCLE\n8\n{layer}\n")
     f.write(f"10\n{cx}\n20\n{cy}\n40\n{r}\n")
 
+def text(f, x, y, txt, layer="ANNOTATE", height=3.0):
+    f.write(f"0\nTEXT\n8\n{layer}\n")
+    f.write(f"10\n{x}\n20\n{y}\n40\n{height}\n")
+    f.write(f"1\n{txt}\n")
+
 def write_spacer_ring_dxf(filename, od=95.0, id=30.0, thickness=1.0, num_lightening=6):
-    """Spacer ring with optional lightening holes (for 3D print reference or laser if using thin sheet)."""
+    """Spacer ring with layers + annotations."""
     path = os.path.join(OUT_DIR, filename)
     with open(path, "w") as f:
         write_dxf_header(f)
-        # Main OD
-        circle(f, 0, 0, od/2, "OUTER")
-        # ID (central clearance)
-        circle(f, 0, 0, id/2, "INNER")
-        # Lightening holes
+        circle(f, 0, 0, od/2, "CUT")
+        circle(f, 0, 0, id/2, "CUT")
         for i in range(num_lightening):
             angle = math.radians(i * 360 / num_lightening + 30)
             hx = 32 * math.cos(angle)
             hy = 32 * math.sin(angle)
-            circle(f, hx, hy, 3.0, "LIGHTENING")
+            circle(f, hx, hy, 3.0, "CUT")
+        text(f, -25, -42, "SPACER 1.0mm - CUT OUTER + HOLES", "ANNOTATE", 2.5)
+        text(f, -25, -48, "Material: PETG or thin sheet", "ANNOTATE", 2.0)
         write_dxf_footer(f)
     print(f"  → {filename}")
 
@@ -58,22 +62,25 @@ def write_orifice_insert_dxf(filename, outer_d=12.0, throat_d=8.0):
     path = os.path.join(OUT_DIR, filename)
     with open(path, "w") as f:
         write_dxf_header(f)
-        circle(f, 0, 0, outer_d/2, "OUTER")
-        circle(f, 0, 0, throat_d/2, "THROAT")
+        circle(f, 0, 0, outer_d/2, "CUT")
+        circle(f, 0, 0, throat_d/2, "CUT")
+        text(f, -5.5, -7.5, f"ORIFICE INSERT Ø{throat_d}mm", "ANNOTATE", 2.2)
         write_dxf_footer(f)
     print(f"  → {filename}")
 
 def write_viewport_bolt_pattern_dxf(filename, od=123.0, bolt_circle_r=39.0, num_bolts=6, hole_d=4.2):
-    """Bolt pattern for viewport / end plates (useful for drilling or laser)."""
+    """Bolt pattern for viewport / end plates with annotations."""
     path = os.path.join(OUT_DIR, filename)
     with open(path, "w") as f:
         write_dxf_header(f)
-        circle(f, 0, 0, od/2, "OUTER")
+        circle(f, 0, 0, od/2, "CUT")
         for i in range(num_bolts):
             angle = math.radians(i * 360 / num_bolts + 15)
             bx = bolt_circle_r * math.cos(angle)
             by = bolt_circle_r * math.sin(angle)
-            circle(f, bx, by, hole_d/2, "BOLTS")
+            circle(f, bx, by, hole_d/2, "DRILL")
+        text(f, -28, -52, "VIEWPORT / END PLATE BOLT CIRCLE", "ANNOTATE", 2.5)
+        text(f, -28, -58, "6x M4 holes @ 39mm radius", "ANNOTATE", 2.0)
         write_dxf_footer(f)
     print(f"  → {filename}")
 

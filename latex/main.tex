@@ -153,9 +153,30 @@ Figures~\ref{fig:exploded} and \ref{fig:assembled} provide overall understanding
 \end{figure}
 
 \subsection{2D Fabrication Profiles (DXF)}
-For laser cutting, CNC, or reference drilling, minimal DXF profiles are provided for the most useful flat parts (spacer rings, orifice inserts, and bolt patterns). These complement the 3D-printable OpenSCAD models.
+For laser cutting, CNC, or reference drilling, DXF profiles with proper layers (CUT, DRILL, ANNOTATE) are provided for the most fabrication-critical flat parts.
 
-Full design rationale, detailed fluid dynamics explanation of how the device is expected to function, practical setup/tuning/testing protocols, and discussion of its unique value to Bob Greenyer / MFMP-style research are contained in the accompanying Sphinx documentation (`docs/theory_and_value.md` and `docs/operation_setup_tune_test.md`).
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{spacer_ring_1mm}
+\caption{Example DXF profile: 1.0 mm spacer ring with lightening holes and annotations (importable into laser cutters and CAM software).}
+\end{figure}
+
+Full design rationale, detailed fluid dynamics explanation of how the device is expected to function, practical setup/tuning/testing protocols, and discussion of its unique value to Bob Greenyer / MFMP-style research are contained in the accompanying Sphinx documentation.
+
+\subsection{Higher-Fidelity 3D Cutaway Views}
+To aid understanding of internal geometry and flow paths, advanced 3D sectional visualizations have been generated programmatically.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{housing_cutaway_3d}
+\caption{3D cutaway of the main housing revealing the internal platter stack and HVAT rotor.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{full_assembly_cutaway_3d}
+\caption{Full assembly cutaway illustrating the complete internal flow path from tangential inlets through the spiral channels, HVAT, and into the cavitation nozzle.}
+\end{figure}
 
 \newpage
 \section*{References}

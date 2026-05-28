@@ -603,6 +603,117 @@ CRITICAL TOLERANCES
 
 
 # =============================================================================
+# 9. Advanced 3D Cutaway Views (Higher Fidelity Internal Visualization)
+# =============================================================================
+def generate_housing_cutaway_3d():
+    """3D cutaway view of the main housing showing internal platter stack and HVAT."""
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_title("3D Cutaway View — Main Housing\n(Revealing Internal Platter Stack + HVAT)", fontsize=12, fontweight='bold')
+
+    # Simulate half-cut housing (only back half visible for cutaway)
+    theta = np.linspace(np.pi/2, 3*np.pi/2, 40)  # half cylinder for cutaway
+    z = np.linspace(-28, 28, 25)
+    T, Z = np.meshgrid(theta, z)
+    X = 52 * np.cos(T)
+    Y = 52 * np.sin(T)
+    ax.plot_surface(X, Y, Z, alpha=0.25, color='#95a5a6', linewidth=0)
+
+    # Internal platters (visible in cutaway)
+    for zz in np.linspace(-22, 22, 11):
+        r = np.linspace(0, 47, 15)
+        th = np.linspace(np.pi/2, 3*np.pi/2, 25)
+        R, TH = np.meshgrid(r, th)
+        XX = R * np.cos(TH)
+        YY = R * np.sin(TH)
+        ZZ = np.full_like(XX, zz)
+        ax.plot_surface(XX, YY, ZZ, alpha=0.7, color='#2c3e50', linewidth=0)
+
+    # HVAT rotor in center (cutaway view)
+    t = np.linspace(0, 4*np.pi, 80)
+    for blade in range(3):
+        phase = blade * 2*np.pi/3
+        x = 9 * np.cos(t + phase)
+        y = 9 * np.sin(t + phase)
+        z = np.linspace(-15, 22, 80)
+        ax.plot(x, y, z, color='#8e44ad', lw=2.5, alpha=0.9)
+
+    # Diffuser (half shown)
+    ax.plot([17, 35], [0, 0], [12, 20], 'g-', lw=3, alpha=0.8)
+    ax.plot([17, 35], [0, 0], [-12, -20], 'g-', lw=3, alpha=0.8)
+
+    # Nozzles on the visible side
+    for i in [2, 3, 4]:
+        a = (i * 60 + 30) * np.pi / 180
+        ax.plot([48*np.cos(a), 62*np.cos(a)],
+                [48*np.sin(a), 62*np.sin(a)],
+                [0, 0], color='#e74c3c', lw=4, alpha=0.9)
+
+    ax.set_xlim(-70, 70)
+    ax.set_ylim(-70, 70)
+    ax.set_zlim(-35, 35)
+    ax.view_init(elev=18, azim=-40)
+    ax.set_xlabel("X (mm)")
+    ax.set_ylabel("Y (mm)")
+    ax.set_zlabel("Z (mm)")
+
+    plt.tight_layout()
+    save_fig(fig, "cutaways/housing_cutaway_3d")
+
+
+def generate_assembly_cutaway_3d():
+    """Full device cutaway showing flow path, platters, HVAT, and nozzle."""
+    fig = plt.figure(figsize=(11, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_title("Full Assembly Cutaway View\n(Internal Flow Path: Tangential Inlets → Spiral → HVAT → Cavitation Nozzle)", fontsize=11, fontweight='bold')
+
+    # Outer housing (partial transparency for cutaway)
+    theta = np.linspace(0, 2*np.pi, 50)
+    z = np.linspace(-25, 32, 20)
+    T, Z = np.meshgrid(theta, z)
+    X = 52 * np.cos(T)
+    Y = 52 * np.sin(T)
+    ax.plot_surface(X, Y, Z, alpha=0.12, color='#bdc3c7')
+
+    # Platter stack (cut in half conceptually)
+    for zz in np.linspace(-20, 18, 9):
+        r = np.linspace(0, 47, 12)
+        th = np.linspace(0, 2*np.pi, 30)
+        R, TH = np.meshgrid(r, th)
+        XX = R * np.cos(TH)
+        YY = R * np.sin(TH)
+        ZZ = np.full_like(XX, zz)
+        ax.plot_surface(XX, YY, ZZ, alpha=0.55, color='#34495e', linewidth=0)
+
+    # HVAT (highly visible in cutaway)
+    t = np.linspace(0, 6*np.pi, 100)
+    for blade in range(3):
+        phase = blade * 2*np.pi/3
+        x = 9 * np.cos(t + phase)
+        y = 9 * np.sin(t + phase)
+        z = np.linspace(-12, 20, 100)
+        ax.plot(x, y, z, color='#8e44ad', lw=2.8)
+
+    # Flow path arrows (conceptual)
+    ax.quiver(48, 0, 0, -25, 0, 0, color='#e74c3c', arrow_length_ratio=0.15, lw=2)  # inlet
+    ax.quiver(0, 0, 20, 0, 0, 12, color='#27ae60', arrow_length_ratio=0.2, lw=2)   # to nozzle
+
+    # Cavitation nozzle
+    ax.plot([17, 17, 35], [0, 0, 0], [12, 5, -5], 'g-', lw=5, alpha=0.7)
+
+    ax.set_xlim(-65, 65)
+    ax.set_ylim(-65, 65)
+    ax.set_zlim(-30, 40)
+    ax.view_init(elev=15, azim=-55)
+    ax.set_xlabel("X (mm)")
+    ax.set_ylabel("Y (mm)")
+    ax.set_zlabel("Z (mm)")
+
+    plt.tight_layout()
+    save_fig(fig, "cutaways/full_assembly_cutaway_3d")
+
+
+# =============================================================================
 # Main entry point
 # =============================================================================
 if __name__ == "__main__":
@@ -615,5 +726,7 @@ if __name__ == "__main__":
     generate_small_parts_drawing()
     generate_exploded_view()
     generate_assembled_simulation()
-    print(f"\nAll illustrations written to {OUT_DIR}/")
+    generate_housing_cutaway_3d()
+    generate_assembly_cutaway_3d()
+    print(f"\nAll illustrations written to {OUT_DIR}/ (including new cutaways/)")
     print("Open the PNGs or SVGs for high-quality engineering views and part simulations.")
