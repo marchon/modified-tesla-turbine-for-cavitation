@@ -44,13 +44,19 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── engineering_drawing_nozzle.png/.svg    # Venturi cavitation nozzle + full orifice insert family
 │   ├── engineering_drawing_jig.png/.svg       # Assembly jig (critical alignment tool)
 │   ├── exploded_assembly.png/.svg             # Exploded view of all major printed components
-│   └── assembled_device_simulation.png/.svg   # 3D simulation of complete assembled device
+│   ├── assembled_device_simulation.png/.svg   # 3D simulation of complete assembled device
+│   └── cutaways/                              # Higher-fidelity 3D sectional views
+│       ├── housing_cutaway_3d.png/.svg        # Cutaway revealing internal platters + HVAT
+│       └── full_assembly_cutaway_3d.png/.svg  # Full device cutaway with conceptual flow path
 │
 ├── python/
 │   ├── generate_engineering_drawings.py       # Programmatic generator (hidden-line drawings + 3D views)
 │   └── generate_dxf_exports.py                # Lightweight DXF generator for 2D fabrication profiles
 │
-├── dxf_exports/                               # Ready-to-use 2D DXF files for laser/CNC (spacers, orifices, bolt patterns)
+├── dxf_exports/                               # Improved 2D DXF files with layers (CUT/DRILL/ANNOTATE) + text for laser/CNC
+│   ├── spacer_ring_1mm.dxf
+│   ├── orifice_*.dxf (6/8/10/12 mm)
+│   └── viewport_bolt_pattern.dxf
 │
 ├── latex/
 │   ├── main.tex                         # Full technical report/whitepaper (abstract, equations, design, references) — compiles cleanly
