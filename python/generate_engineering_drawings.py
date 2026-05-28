@@ -713,6 +713,54 @@ def generate_assembly_cutaway_3d():
     save_fig(fig, "cutaways/full_assembly_cutaway_3d")
 
 
+def generate_more_cutaways():
+    """Additional high-value cutaway and sectional views."""
+    
+    # HVAT Detail Cutaway
+    fig = plt.figure(figsize=(9, 7))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_title("HVAT Rotor Detail Cutaway\n(Savonius starting scoops + Helical Darrius blades)", fontsize=11, fontweight='bold')
+    
+    t = np.linspace(0, 6*np.pi, 120)
+    for blade in range(3):
+        phase = blade * 2*np.pi/3
+        x = 9 * np.cos(t + phase)
+        y = 9 * np.sin(t + phase)
+        z = np.linspace(-15, 22, 120)
+        ax.plot(x, y, z, color='#8e44ad', lw=3.5)
+    
+    # Add simplified Savonius scoops at bottom
+    for i in range(2):
+        angle = i * np.pi
+        ax.plot([0, 12*np.cos(angle)], [0, 12*np.sin(angle)], [-14, -14], color='#3498db', lw=4)
+    
+    ax.set_xlim(-18, 18)
+    ax.set_ylim(-18, 18)
+    ax.set_zlim(-20, 25)
+    ax.view_init(elev=22, azim=35)
+    save_fig(fig, "cutaways/hvat_detail_cutaway_3d")
+
+    # Nozzle Internal Cutaway
+    fig = plt.figure(figsize=(10, 5))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_title("Cavitation Nozzle Internal Cutaway\n(Venturi profile with interchangeable orifice)", fontsize=11, fontweight='bold')
+    
+    # Simplified nozzle body (half cut)
+    z = np.linspace(0, 45, 30)
+    for r in [14, 10, 4, 9]:  # outer, converging, throat, diverging
+        theta = np.linspace(0, np.pi, 20)
+        T, Z = np.meshgrid(theta, z)
+        X = r * np.cos(T)
+        Y = np.zeros_like(X)
+        ax.plot_surface(X, Y, Z, alpha=0.3, color='#e74c3c')
+    
+    ax.set_xlim(-16, 16)
+    ax.set_ylim(-16, 16)
+    ax.set_zlim(0, 48)
+    ax.view_init(elev=12, azim=20)
+    save_fig(fig, "cutaways/nozzle_internal_cutaway_3d")
+
+
 # =============================================================================
 # Main entry point
 # =============================================================================
@@ -728,5 +776,6 @@ if __name__ == "__main__":
     generate_assembled_simulation()
     generate_housing_cutaway_3d()
     generate_assembly_cutaway_3d()
+    generate_more_cutaways()
     print(f"\nAll illustrations written to {OUT_DIR}/ (including new cutaways/)")
     print("Open the PNGs or SVGs for high-quality engineering views and part simulations.")

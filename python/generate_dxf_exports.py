@@ -84,6 +84,19 @@ def write_viewport_bolt_pattern_dxf(filename, od=123.0, bolt_circle_r=39.0, num_
         write_dxf_footer(f)
     print(f"  → {filename}")
 
+def write_bearing_houser_dxf(filename, od=24, flange_d=32, bore_d=8.2):
+    """2D profile for bearing housers (for reference or light machining)."""
+    path = os.path.join(OUT_DIR, filename)
+    with open(path, "w") as f:
+        write_dxf_header(f)
+        circle(f, 0, 0, od/2, "CUT")
+        circle(f, 0, 0, flange_d/2, "CUT")
+        circle(f, 0, 0, bore_d/2, "DRILL")
+        text(f, -10, -18, "BEARING HOUSER - 608ZZ", "ANNOTATE", 2.5)
+        text(f, -10, -23, "Press-fit bore + flange", "ANNOTATE", 2.0)
+        write_dxf_footer(f)
+    print(f"  → {filename}")
+
 if __name__ == "__main__":
     print("Generating DXF fabrication profiles...")
     write_spacer_ring_dxf("spacer_ring_1mm.dxf", od=95, id=30, thickness=1.0)
@@ -92,5 +105,6 @@ if __name__ == "__main__":
     write_orifice_insert_dxf("orifice_10mm.dxf", outer_d=12, throat_d=10)
     write_orifice_insert_dxf("orifice_12mm.dxf", outer_d=12, throat_d=12)
     write_viewport_bolt_pattern_dxf("viewport_bolt_pattern.dxf")
+    write_bearing_houser_dxf("bearing_houser_profile.dxf")
     print(f"\nDXF files written to {OUT_DIR}/ (importable into most CAD/CAM software)")
     print("Note: These are 2D profiles only. For full 3D, use the OpenSCAD source files.")

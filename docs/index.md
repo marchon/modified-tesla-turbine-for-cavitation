@@ -15,6 +15,7 @@ build
 testing
 ultrasonic_hybrid
 engineering_drawings
+gallery
 openscad
 references
 ```

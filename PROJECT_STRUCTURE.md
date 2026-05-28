@@ -47,7 +47,14 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── assembled_device_simulation.png/.svg   # 3D simulation of complete assembled device
 │   └── cutaways/                              # Higher-fidelity 3D sectional views
 │       ├── housing_cutaway_3d.png/.svg        # Cutaway revealing internal platters + HVAT
-│       └── full_assembly_cutaway_3d.png/.svg  # Full device cutaway with conceptual flow path
+│       ├── full_assembly_cutaway_3d.png/.svg  # Full device cutaway with conceptual flow path
+│       ├── hvat_detail_cutaway_3d.png/.svg
+│       └── nozzle_internal_cutaway_3d.png/.svg
+│
+│   flow_path_animation.gif                    # 20-frame animated flow development
+│
+│   performance_graphs/                        # Sensitivity plots (HVAT brake, orifice, pressure, gap)
+│       └── performance_sensitivity.png/.svg   # Main tuning effects dashboard
 │
 ├── python/
 │   ├── generate_engineering_drawings.py       # Programmatic generator (hidden-line drawings + 3D views)
@@ -73,6 +80,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── testing.md                       # Greenyer/MFMP-style testing protocol (air characterization → hybrid ULTR → advanced)
 │   ├── ultrasonic_hybrid.md             # ULTR integration details, transducer recommendations, expected signatures
 │   ├── engineering_drawings.md          # All CAD objects as professional engineering drawings + 3D part simulations + DXF notes
+│   ├── gallery.md                       # Dedicated visual gallery (cutaways, flow animation, performance graphs)
 │   ├── theory_and_value.md              # Design rationale, fluid dynamics explanation, uniqueness & value to MFMP/Bob Greenyer work
 │   ├── operation_setup_tune_test.md     # Practical guidance: setup, tuning, testing protocols, result tracking
 │   ├── references.md                    # All exact video links, Substack, LENR-Forum threads from the original PDF conversation
