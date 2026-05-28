@@ -1,5 +1,11 @@
 # Modified Tesla Turbine for Cavitation — Precision HDD Platter Flow Conditioner
 
+> **⚠️ Critical Notice (Please Read First)**  
+> This is an **open design exploration**, not a validated scientific instrument.  
+> All performance graphs and models are simplified conceptual estimates only.  
+> There is currently no experimental data from the author.  
+> → Read the full **[Project Status & Limitations](docs/project_status_and_limitations.md)** before using or citing this work.
+
 **Open hardware precision gas/liquid injection device for repeatable hydrodynamic (and hybrid ultrasonic) cavitation experiments**, optimized for LENR/cavitation research in the style of Bob Greenyer and the Martin Fleischmann Memorial Project (MFMP).
 
 This project packages a complete, buildable, fully parametric design for a stationary (or lightly braked) Tesla-style disc-stack flow conditioner built from scrapped Enterprise 3.5" HDD platters. The device delivers low-turbulence, uniformly spiraled flow from tangential inlets to a central exit — ideal for injecting controlled microbubbles or gas streams into a cavitation chamber with excellent repeatability.

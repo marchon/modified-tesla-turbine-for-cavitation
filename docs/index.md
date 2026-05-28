@@ -1,5 +1,9 @@
 # HDD Platter Precision Flow Conditioner
 
+> **⚠️ Important Notice**  
+> Before using this project, please read the **[Project Status & Limitations](project_status_and_limitations)** page.  
+> Performance graphs and models are conceptual estimates only. There is currently no experimental validation by the author.
+
 **A fully parametric, 3D-printable, open-hardware device for repeatable hydrodynamic cavitation experiments.**
 
 Built around a stack of 25 highly polished Enterprise 3.5" HDD platters (Tesla-style boundary layer spiral) with an optional central Hybrid VAWT (HVAT) flow straightener. Designed specifically as a precision gas/liquid injection tool for LENR and cavitation research in the tradition of Bob Greenyer and the Martin Fleischmann Memorial Project (MFMP).
@@ -8,6 +12,7 @@ Built around a stack of 25 highly polished Enterprise 3.5" HDD platters (Tesla-s
 :maxdepth: 2
 :caption: Contents
 
+project_status_and_limitations
 design
 theory_and_value
 tools_and_software

@@ -1,5 +1,8 @@
 # Modified Tesla Turbine for Cavitation — Complete File Tree
 
+**⚠️ Important**: Before exploring this project in depth, please read  
+`docs/project_status_and_limitations.md`
+
 This document lists every file in the repository with a short description of its purpose.
 Generated after expanding all OpenSCAD modules, Sphinx pages, diagrams, and supporting files
 directly from the May 2026 Grok conversation PDF (22 pages).
