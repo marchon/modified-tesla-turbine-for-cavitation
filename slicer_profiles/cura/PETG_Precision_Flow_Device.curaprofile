@@ -1,0 +1,33 @@
+{
+    "name": "PETG Precision - Flow Conditioner Device",
+    "version": 2,
+    "settings": {
+        "layer_height": 0.2,
+        "layer_height_0": 0.2,
+        "wall_thickness": 2.4,
+        "wall_line_count": 5,
+        "infill_sparse_density": 35,
+        "infill_pattern": "gyroid",
+        "top_layers": 6,
+        "bottom_layers": 6,
+        "brim_width": 8,
+        "support_enable": false,
+        "adhesion_type": "brim",
+        "material_print_temperature": 245,
+        "material_bed_temperature": 85,
+        "cool_fan_enabled": true,
+        "cool_fan_speed": 60,
+        "speed_print": 50,
+        "speed_wall": 40,
+        "speed_wall_0": 30,
+        "speed_infill": 60,
+        "bridge_wall_speed": 25,
+        "bridge_wall_material_flow": 95,
+        "magic_spiralize": false
+    },
+    "metadata": {
+        "type": "quality_changes",
+        "setting_version": 22,
+        "description": "Optimized for printing parts of the HDD Platter / CD-DVD Flow Conditioner project in PETG.\n\nFor spacers, duplicate this profile and set layer_height to 0.15 or 0.12."
+    }
+}

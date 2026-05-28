@@ -31,7 +31,11 @@
 
 module platter_spacer(od=95, thickness=1.0, id=30) {
     difference() {
+        // CRITICAL DIMENSION: Thickness must be consistent across all spacers
+        // Target tolerance: ±0.05mm (ideally ±0.03mm)
+        // This directly controls gap size between platters.
         cylinder(d=od, h=thickness, center=true, $fn=96);
+        
         cylinder(d=id, h=thickness+0.2, center=true, $fn=64);
         
         // 6 lightening holes (optional — remove if you want solid rings)

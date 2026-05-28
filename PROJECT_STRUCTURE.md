@@ -10,6 +10,7 @@ Modified-Tesla-Turbine-For-Cavitation/
 ├── README.md                            # High-level project overview, quick start, credits to Grok conversation + Greenyer/MFMP
 ├── PRINTING.md                          # Quick 3D printing reference (materials + settings)
 ├── docs/printing_guide.md               # Full detailed printing guide (per-part recommendations, slicer profiles, troubleshooting, tolerances)
+├── docs/how_to_print_precise_spacers.md # Deep dive on hitting ±0.05mm spacer tolerance (the hardest dimension)
 ├── DESIGN_NOTES.md                      # Detailed rationale, geometry choices, trade-offs, and open questions from the chat
 ├── LICENSE                              # MIT (software/docs) + CERN OHL-S-2 note (hardware designs)
 ├── Makefile                             # Convenient targets: make diagrams / docs / latex / clean
@@ -19,6 +20,14 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   └── BOM.csv                          # Complete bill of materials (25 platters + all printed parts + hardware) from conversation
 │
 ├── scad/                                # All OpenSCAD modules (split exactly as referenced in the chat)
+│
+├── scad/cd_dvd_version/                 # Alternative design using cheap CD/DVD discs (120mm diameter) instead of HDD platters
+│   ├── CD_DVD_Flow_Conditioner.scad     # Main housing + nozzles adapted for CD/DVD
+│   └── CD_DVD_Spacer.scad
+│
+├── calibration_test_pieces/             # Calibration prints to achieve tight tolerances
+│   ├── Spacer_Thickness_Calibration.scad
+│   └── Bearing_Bore_Calibration.scad
 │   ├── HDD_Platter_Cavitation_Conditioner.scad   # Main housing + 6 tangential nozzles (~10°) + HVAT hub + diffuser (parametric master)
 │   ├── HVAT_BLADES.scad                 # Hybrid Savonius + helical Darrius rotor (active flow straightener, not power extractor)
 │   ├── BEARING_HOUSERS.scad             # Upper & lower 608ZZ bearing housers with flanges (press-fit + mounting)

@@ -90,6 +90,10 @@ This is the definitive guide for successfully printing all parts of the HDD Plat
 - Thorough cleaning of all holes and threads
 - For orifices: Consider drilling to final size if you have the bits
 
+## See Also
+
+- `docs/how_to_print_precise_spacers.md` — Detailed guide for hitting the most critical tolerance in the project (±0.05 mm on spacers)
+
 ## Recommended Workflow
 
 1. Print 5-6 test spacers first → measure and dial in flow

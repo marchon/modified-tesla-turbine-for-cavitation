@@ -33,6 +33,8 @@ module bearing_houser(od=24, id=8.2, h=8, flange_d=32) {
     difference() {
         union() {
             // Main cylinder (press fit for bearing)
+            // CRITICAL: id parameter controls bearing fit.
+            // Target printed bore for standard 608ZZ (8.00mm OD): 8.15 - 8.25mm
             cylinder(d=od, h=h, center=true, $fn=64);
             // Mounting flange
             cylinder(d=flange_d, h=3, center=true, $fn=64);
