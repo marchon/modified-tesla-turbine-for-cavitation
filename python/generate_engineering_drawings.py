@@ -49,6 +49,22 @@ def save_fig(fig, basename):
     print(f"  → {basename}.png + .svg")
 
 
+def draw_hidden_line(ax, x, y, **kwargs):
+    """Helper for dashed hidden lines in engineering drawings."""
+    kwargs.setdefault('color', 'black')
+    kwargs.setdefault('linewidth', 0.6)
+    kwargs.setdefault('linestyle', '--')
+    ax.plot(x, y, **kwargs)
+
+
+def draw_visible_line(ax, x, y, **kwargs):
+    """Helper for solid visible lines."""
+    kwargs.setdefault('color', 'black')
+    kwargs.setdefault('linewidth', 1.0)
+    kwargs.setdefault('linestyle', '-')
+    ax.plot(x, y, **kwargs)
+
+
 def draw_dimension(ax, start, end, text, offset=3, arrow_style='<->', text_offset=0.8):
     """Draw a dimension line with arrows and text."""
     dx = end[0] - start[0]

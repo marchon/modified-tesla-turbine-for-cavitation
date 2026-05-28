@@ -46,7 +46,11 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── exploded_assembly.png/.svg             # Exploded view of all major printed components
 │   └── assembled_device_simulation.png/.svg   # 3D simulation of complete assembled device
 │
-├── python/generate_engineering_drawings.py    # Programmatic generator for all engineering drawings above
+├── python/
+│   ├── generate_engineering_drawings.py       # Programmatic generator (hidden-line drawings + 3D views)
+│   └── generate_dxf_exports.py                # Lightweight DXF generator for 2D fabrication profiles
+│
+├── dxf_exports/                               # Ready-to-use 2D DXF files for laser/CNC (spacers, orifices, bolt patterns)
 │
 ├── latex/
 │   ├── main.tex                         # Full technical report/whitepaper (abstract, equations, design, references) — compiles cleanly
@@ -62,7 +66,9 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── build.md                         # Detailed print settings + step-by-step assembly instructions (from chat)
 │   ├── testing.md                       # Greenyer/MFMP-style testing protocol (air characterization → hybrid ULTR → advanced)
 │   ├── ultrasonic_hybrid.md             # ULTR integration details, transducer recommendations, expected signatures
-│   ├── engineering_drawings.md          # All CAD objects as professional engineering drawings + 3D part simulations
+│   ├── engineering_drawings.md          # All CAD objects as professional engineering drawings + 3D part simulations + DXF notes
+│   ├── theory_and_value.md              # Design rationale, fluid dynamics explanation, uniqueness & value to MFMP/Bob Greenyer work
+│   ├── operation_setup_tune_test.md     # Practical guidance: setup, tuning, testing protocols, result tracking
 │   ├── references.md                    # All exact video links, Substack, LENR-Forum threads from the original PDF conversation
 │   └── _static/                         # Static assets (copied diagrams for easy inclusion in docs)
 │

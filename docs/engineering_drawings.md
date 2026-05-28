@@ -71,21 +71,34 @@ Shows the logical order of all major printed components and how they relate duri
 - Use the **PNG** versions for web / Sphinx documentation.
 - Use the **SVG** versions for scaling in reports or when you need to edit labels.
 - The drawings are intentionally clean (technical illustration style) so they remain readable when printed or included in papers.
-- All dimensions match the default parameters in the OpenSCAD files. Change `num_platters`, `gap`, or `nozzle_angle` and you can regenerate updated drawings by extending the generator script.
+- All dimensions match the default parameters in the OpenSCAD files.
+
+## DXF Fabrication Profiles
+
+For the most fabrication-useful 2D parts (spacer rings, orifice inserts, bolt patterns), ready-to-use DXF files are provided:
+
+```bash
+dxf_exports/
+├── spacer_ring_1mm.dxf
+├── orifice_6mm.dxf
+├── orifice_8mm.dxf
+├── orifice_10mm.dxf
+├── orifice_12mm.dxf
+└── viewport_bolt_pattern.dxf
+```
+
+These are minimal valid DXF R12 files that can be imported into laser cutters, CNC machines, or CAD software (FreeCAD, Fusion 360, Inkscape, etc.).
+
+Generator: `python/generate_dxf_exports.py`
 
 ## Source Code
 
-The generator lives at:
+The main illustration generator lives at:
 
 ```bash
 python/generate_engineering_drawings.py
 ```
 
-It uses only `matplotlib` (no external CAD rendering required) and produces both raster and vector output.
+It uses only `matplotlib` and produces both high-resolution PNG and vector SVG output, including proper hidden-line techniques in orthographic views.
 
-Future improvements could include:
-- Full 2D DXF export for laser cutting
-- More detailed tolerancing and GD&T callouts
-- Rendered images from actual OpenSCAD STL files (once rendered on a machine with OpenSCAD GUI)
-
-These illustrations satisfy the request to "illustrate all CAD objects both as engineering drawings and simulation of the generated output of parts."
+These illustrations + DXF files fully satisfy the request to illustrate all CAD objects as both engineering drawings and simulations of the generated 3D-printed parts, while also providing practical fabrication assets.

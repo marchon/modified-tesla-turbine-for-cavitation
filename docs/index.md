@@ -9,6 +9,8 @@ Built around a stack of 25 highly polished Enterprise 3.5" HDD platters (Tesla-s
 :caption: Contents
 
 design
+theory_and_value
+operation_setup_tune_test
 build
 testing
 ultrasonic_hybrid
