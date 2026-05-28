@@ -115,6 +115,65 @@ Modified-Tesla-Turbine-For-Cavitation/
 └── requirements-docs.txt                # Sphinx + Python deps for local docs build (furo, myst-parser, matplotlib, etc.)
 ```
 
+## Special Interest Navigation Trees
+
+These focused sub-trees are provided so readers can quickly jump to areas relevant to their interest.
+
+### CAD / Parametric Design (OpenSCAD)
+```
+scad/
+├── HDD_Platter_Cavitation_Conditioner.scad   # Main housing (HDD platters)
+├── HVAT_BLADES.scad                          # Hybrid VAWT rotor
+├── BEARING_HOUSERS.scad
+├── CAVITATION_NOZZLE.scad
+├── SPACER_RING.scad
+├── ASSEMBLY_JIG.scad
+├── CLEAR_VIEWPORT.scad
+├── SHIPPING_INSERTS.scad
+├── OPERATION_COVERS.scad
+└── cd_dvd_version/                           # Complete alternative using CD/DVD discs
+    ├── CD_DVD_Flow_Conditioner.scad
+    ├── CD_DVD_Spacer.scad
+    ├── CD_DVD_Bearing_Housers.scad
+    ├── CD_DVD_End_Plates.scad
+    ├── CD_DVD_HVAT_Hub.scad
+    ├── CD_DVD_Assembly_Jig.scad
+    ├── CD_DVD_Operation_Covers.scad
+    └── CD_DVD_Clear_Viewport.scad
+```
+
+### Python Generators, Visualization & Analysis
+```
+python/
+├── generate_engineering_drawings.py          # Orthographic + 3D cutaway diagrams
+├── generate_dxf_exports.py                   # Laser/CNC DXF profiles with layers
+├── generate_flow_animation.py                # Flow development animation (GIF + frames)
+└── generate_performance_graphs.py            # Tuning sensitivity plots
+```
+
+### Calibration, Fabrication & DXF
+```
+calibration_test_pieces/          # Printer calibration tools
+dxf_exports/                      # Ready-to-use 2D fabrication files
+slicer_profiles/                  # Bambu / Prusa / Cura templates
+fabrication/                      # Professional quote packages (PCBWay etc.)
+```
+
+### Documentation & Replication Guides
+```
+docs/
+├── printing_guide.md
+├── build.md
+├── tools_and_software.md
+├── how_to_print_precise_spacers.md
+├── design_comparison_hdd_vs_cddvd.md
+├── engineering_drawings.md
+├── gallery.md
+└── theory_and_value.md
+```
+
+See the full flat tree below for every file with descriptions.
+
 ## Directory Philosophy (from Conversation)
 
 - `scad/` — Every distinct module the chat produced or referenced is a separate, well-commented .scad file so users can render/export only what they need.

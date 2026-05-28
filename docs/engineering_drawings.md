@@ -99,6 +99,8 @@ The main illustration generator lives at:
 python/generate_engineering_drawings.py
 ```
 
-It uses only `matplotlib` and produces both high-resolution PNG and vector SVG output, including proper hidden-line techniques in orthographic views.
+It uses only `matplotlib` (and supporting libraries NumPy, Pillow, SciPy) and produces both high-resolution PNG and vector SVG output, including proper hidden-line techniques in orthographic views. Additional generators exist for DXF export, flow path animation, and performance sensitivity graphs \cite{flow_conditioner_generators2026}.
 
 These illustrations + DXF files fully satisfy the request to illustrate all CAD objects as both engineering drawings and simulations of the generated 3D-printed parts, while also providing practical fabrication assets.
+
+See the “Tools and Software” section of the main technical report for a full list of CAD, rendering, and analysis tools used.

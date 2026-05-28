@@ -10,6 +10,9 @@ Built around a stack of 25 highly polished Enterprise 3.5" HDD platters (Tesla-s
 
 design
 theory_and_value
+tools_and_software
+customization_guide
+software_bill_of_materials
 operation_setup_tune_test
 build
 testing

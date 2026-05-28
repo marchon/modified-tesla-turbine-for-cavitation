@@ -116,6 +116,51 @@ Start here:
     plt.close()
     print("  → performance_sensitivity.png + .svg")
 
+    # === NEW: What-if scenarios with strong disclaimers ===
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    fig.suptitle("Simulated 'What-If' Performance (Software Estimates Only — Not CFD or Experimental Data)\n"
+                 "These curves are directional guidance based on simplified analytical models. Real behavior will vary.", 
+                 fontsize=11, fontweight='bold', color='#c0392b')
+
+    # Left: Effect of number of discs on estimated flow uniformity (qualitative model)
+    ax1 = axes[0]
+    num_discs = np.arange(10, 45, 2)
+    uniformity_index = 60 + 35 * (1 - np.exp(-0.08 * (num_discs - 10)))   # saturating improvement
+    ax1.plot(num_discs, uniformity_index, 'b-o', markersize=4)
+    ax1.set_xlabel("Number of Discs")
+    ax1.set_ylabel("Estimated Flow Uniformity Index (arbitrary units)")
+    ax1.set_title("More Discs → Better Channel-to-Channel Uniformity\n(plateaus around 30–35 discs)")
+    ax1.grid(True, alpha=0.3)
+    ax1.axvline(25, color='gray', linestyle='--', alpha=0.6, label="Default (25)")
+    ax1.legend()
+
+    # Right: Combined effect of gap + nozzle angle on estimated swirl at exit
+    ax2 = axes[1]
+    gaps = [0.8, 1.0, 1.3, 1.6]
+    angles = np.linspace(5, 18, 50)
+    for g in gaps:
+        # Very rough model: tighter gaps + smaller angle = more swirl reduction before HVAT
+        swirl = 70 - 25*np.log10(angles) * (1.4 - g)  
+        ax2.plot(angles, np.clip(swirl, 20, 90), label=f"{g} mm gap")
+
+    ax2.set_xlabel("Nozzle Angle from Tangent (°)")
+    ax2.set_ylabel("Estimated Residual Swirl at Exit (qualitative)")
+    ax2.set_title("Gap + Nozzle Angle Interaction on Pre-HVAT Swirl\n(Tighter gaps + shallower angles retain more organized swirl)")
+    ax2.legend(title="Gap size", fontsize=8)
+    ax2.grid(True, alpha=0.3)
+
+    plt.figtext(0.5, 0.01, 
+                "DISCLAIMER: These are simplified model outputs for exploration only. They do not replace physical testing or proper CFD. "
+                "Actual results depend on surface finish, alignment precision, inlet conditions, fluid properties, and many other factors.",
+                ha="center", fontsize=8, style='italic', color='#c0392b',
+                bbox=dict(boxstyle="round", facecolor="#fff3cd", alpha=0.9))
+
+    plt.tight_layout(rect=[0, 0.08, 1, 0.95])
+    plt.savefig(os.path.join(OUT_DIR, "whatif_scenarios.png"), dpi=160, bbox_inches='tight')
+    plt.savefig(os.path.join(OUT_DIR, "whatif_scenarios.svg"), bbox_inches='tight')
+    plt.close()
+    print("  → whatif_scenarios.png + .svg (with strong disclaimers)")
+
 if __name__ == "__main__":
     print("Generating performance sensitivity graphs...")
     plot_performance_curves()

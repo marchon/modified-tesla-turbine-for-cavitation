@@ -1,0 +1,111 @@
+\begin{thebibliography}{10}
+
+\bibitem{akwa2012}
+J.~V. Akwa, H.~A. Vielmo, and A.~P. Petry.
+\newblock A review on the performance of savonius wind turbines.
+\newblock {\em Renewable and Sustainable Energy Reviews}, 16(5):3054--3064,
+  2012.
+
+\bibitem{brennen1995}
+Christopher~E. Brennen.
+\newblock {\em Cavitation and Bubble Dynamics}.
+\newblock Oxford University Press, 1995.
+
+\bibitem{darrieus1931}
+Georges Jean~Marie Darrieus.
+\newblock Turbine having its rotating shaft transverse to the flow of the
+  current, 1931.
+
+\bibitem{freecad2025}
+FreeCAD Developers.
+\newblock Freecad, 2025.
+\newblock Used for STL to STEP conversion and advanced modeling.
+
+\bibitem{inkscape2025}
+Inkscape Developers.
+\newblock Inkscape, 2025.
+\newblock SVG editing and DXF post-processing.
+
+\bibitem{numpy2025}
+NumPy Developers.
+\newblock Numpy: The fundamental package for scientific computing with python,
+  2025.
+
+\bibitem{openscad2025}
+OpenSCAD Developers.
+\newblock Openscad - the programmers solid 3d cad modeller, 2025.
+\newblock Version 2021.01+.
+
+\bibitem{pillow2025}
+Pillow Developers.
+\newblock Pillow - python imaging library, 2025.
+
+\bibitem{scipy2025}
+SciPy Developers.
+\newblock Scipy: Scientific computing in python, 2025.
+
+\bibitem{python2025}
+Python~Software Foundation.
+\newblock Python programming language, 2025.
+
+\bibitem{franc2004}
+Jean-Pierre Franc and Jean-Marie Michel.
+\newblock {\em Fundamentals of Cavitation}.
+\newblock Springer, 2004.
+
+\bibitem{greenyer2020}
+Bob Greenyer.
+\newblock Ultr - a simple, quick and repeatable demonstration of anomalous
+  effects in cavitation, 2020.
+
+\bibitem{greenyer2023}
+Bob Greenyer.
+\newblock Remoteview substack - cavitation, evos and lenr research, 2023--2026.
+
+\bibitem{texlive2026}
+TeX~Users Group.
+\newblock Tex live 2026, 2026.
+
+\bibitem{matplotlib2025}
+John~D. Hunter and Matplotlib~Development Team.
+\newblock Matplotlib: A 2d graphics environment, 2025.
+
+\bibitem{liang2017}
+X.~Liang, S.~Zhang, and J.~Wang.
+\newblock A hybrid vertical axis wind turbine with improved self-starting
+  performance.
+\newblock {\em Energy Conversion and Management}, 2017.
+
+\bibitem{paraschivoiu2002}
+I.~Paraschivoiu.
+\newblock Wind turbine design: With emphasis on darrieus concept.
+\newblock 2002.
+
+\bibitem{rice1965}
+Warren Rice.
+\newblock An analytical and experimental investigation of multiple-disk
+  turbines.
+\newblock {\em Journal of Engineering for Power}, 87(1):29--36, 1965.
+
+\bibitem{savonius1925}
+Sigurd~J. Savonius.
+\newblock Wind turbine, 1925.
+
+\bibitem{sengupta2016}
+A.~Sengupta and A.~Guha.
+\newblock A simple theory of the tesla turbine.
+\newblock {\em Proceedings of the Royal Society A}, 2016.
+
+\bibitem{tesla1913}
+Nikola Tesla.
+\newblock Fluid propulsion, 1913.
+
+\bibitem{flow_conditioner_generators2026}
+George~Lambert with assistance from SuperGrok Heavy~(@grokbuild beta).
+\newblock Flow conditioner diagram, dxf, and performance graph generators.
+\newblock Python scripts in the Modified-Tesla-Turbine-For-Cavitation
+  repository, 2026.
+\newblock Includes engineering\_drawings.py, generate\_dxf\_exports.py,
+  generate\_flow\_animation.py, generate\_performance\_graphs.py.
+
+\end{thebibliography}

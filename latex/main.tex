@@ -8,10 +8,13 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{float}
+\usepackage{natbib}
+
+\graphicspath{{figures/}}
 
 \title{\textbf{Precision Flow Conditioning for Hydrodynamic Cavitation Experiments}\\[0.4em]
 \large HDD Platter Tesla-Style Disc Stack with Optional Central HVAT}
-\author{Marchon \\ (design developed with Grok, xAI — May 2026)}
+\author{George Lambert \\ Litchfield, NH \\ \href{mailto:marchon@gmail.com}{marchon@gmail.com} \\ \href{https://www.linkedin.com/in/podjacker}{linkedin.com/in/podjacker}}
 \date{\today}
 
 \begin{document}
@@ -24,11 +27,11 @@ A fully parametric, low-cost, 3D-printable flow conditioner built from 25 polish
 
 \section{Introduction}
 
-Standard Tesla turbines are boundary-layer devices that convert fluid kinetic energy into shaft torque via viscous drag on closely spaced smooth discs. The flow enters tangentially at the periphery and spirals inward to a central exhaust.
+Standard Tesla turbines are boundary-layer devices that convert fluid kinetic energy into shaft torque via viscous drag on closely spaced smooth discs \cite{tesla1913,rice1965}. The flow enters tangentially at the periphery and spirals inward to a central exhaust.
 
 In this work the same geometry is deliberately repurposed: the disc stack is run essentially stationary and its function is inverted — it becomes a precision \emph{flow conditioner} whose output is a clean, repeatable, multi-channel spiral jet ideally suited for controlled cavitation bubble generation.
 
-The motivation comes directly from open LENR/cavitation research (Bob Greenyer, Martin Fleischmann Memorial Project). Many of the most interesting effects (microsphere formation, anomalous elemental changes, ``strange radiation'', excess heat signatures) appear to depend sensitively on bubble size distribution, collapse intensity, and the presence of dissolved or injected gases (including deuterium). Crude injection methods introduce large run-to-run variability. A device that can deliver well-characterized, low-turbulence, tunable flow therefore has immediate scientific value.
+The motivation comes directly from open LENR/cavitation research (Bob Greenyer and the Martin Fleischmann Memorial Project) \cite{greenyer2020,greenyer2026,greenyer2023}. Many of the most interesting effects (microsphere formation, anomalous elemental changes, ``strange radiation'', excess heat signatures) appear to depend sensitively on bubble size distribution, collapse intensity, and the presence of dissolved or injected gases (including deuterium) \cite{brennen1995,franc2004}. Crude injection methods introduce large run-to-run variability. A device that can deliver well-characterized, low-turbulence, tunable flow therefore has immediate scientific value.
 
 \section{Device Architecture}
 
@@ -45,20 +48,20 @@ The highly polished surfaces and tight, uniform gaps create many parallel, low-R
 Six nozzles equally spaced around the periphery, oriented 8--12° from true tangential (10° default). This angle was found through iteration to give a vigorous yet stable spiral without excessive radial velocity or flow separation at the entry.
 
 \subsection{Central HVAT (Hybrid Vertical Axis Turbine)}
-A small (28 mm diameter) hybrid rotor (Savonius starting scoops + helical Darrius blades) is mounted on bearings in the central exhaust region. It is \emph{not} optimized for net power extraction. Instead it uses residual swirl energy to further straighten and organize the flow into a cleaner axial jet before the final diffuser and cavitation nozzle. The rotor can be left free, lightly braked (printed caliper), or driven.
+A small (28 mm diameter) hybrid rotor combining Savonius starting scoops with helical Darrius blades (a configuration inspired by classic VAWT research \cite{savonius1925,darrieus1931,akwa2012,paraschivoiu2002,liang2017}) is mounted on bearings in the central exhaust region. It is \emph{not} optimized for net power extraction. Instead it uses residual swirl energy to further straighten and organize the flow into a cleaner axial jet before the final diffuser and cavitation nozzle. The rotor can be left free, lightly braked (printed caliper), or driven.
 
 \subsection{Cavitation Nozzle}
 A Venturi-style converging-diverging nozzle with interchangeable orifice inserts (6/8/10/12 mm throat) accelerates the conditioned flow and creates the sharp pressure drop required for reproducible bubble inception immediately upstream of (or inside) the experimental chamber.
 
 \section{Key Equations}
 
-\textbf{Reynolds number in the gaps} (characteristic length = gap height):
+\textbf{Reynolds number in the gaps} (characteristic length = gap height) \cite{brennen1995}:
 \[
 Re = \frac{\rho v g}{\mu}
 \]
 where $g$ is the inter-platter gap, $v$ the local velocity.
 
-\textbf{Cavitation number} at the nozzle exit:
+\textbf{Cavitation number} at the nozzle exit \cite{brennen1995,franc2004}:
 \[
 \sigma = \frac{p_\text{static} - p_\text{vapor}}{\frac{1}{2}\rho v^2}
 \]
@@ -73,23 +76,52 @@ Full quantitative modeling requires CFD on the actual STL geometry.
 
 \section{Open Source Deliverables}
 
-All design artifacts are released under appropriate open licenses (CERN OHL-S-2 for hardware, MIT for software/docs):
+All design artifacts are released under appropriate open licenses (CERN OHL-S-2 for hardware, MIT for software/docs). This work builds upon decades of open research and open-source tooling, including the original Tesla turbine concept \cite{tesla1913}, modern boundary-layer turbine analysis \cite{rice1965,sengupta2016}, and the experimental cavitation protocols developed by Bob Greenyer and the MFMP community \cite{greenyer2020,greenyer2026}.
+
+The following tools were essential to this project:
+\begin{itemize}
+    \item OpenSCAD \cite{openscad2025} for all parametric 3D models.
+    \item Python scientific stack (NumPy \cite{numpy2025}, Matplotlib \cite{matplotlib2025}, Pillow \cite{pillow2025}, SciPy \cite{scipy2025}) used to generate engineering drawings, performance graphs, flow animations, and DXF profiles \cite{flow_conditioner_generators2026}.
+    \item \TeX{} Live 2026 \cite{texlive2026} and supporting tools such as Inkscape \cite{inkscape2025}.
+\end{itemize}
 
 \begin{itemize}
     \item Parametric OpenSCAD files (main housing, HVAT blades, spacers, jigs, sensor mounts, full cavitation nozzle with orifice family)
     \item Complete BOM (see \texttt{data/BOM.csv})
     \item Step-by-step assembly instructions and testing protocol for Greenyer-style experiments
     \item Python engineering models (Reynolds, cavitation number, rough velocity estimates)
+    \item Custom Python generators for engineering drawings, DXF fabrication profiles, flow path animations, and performance sensitivity graphs \cite{flow_conditioner_generators2026}
     \item This document + accompanying Sphinx site
 \end{itemize}
 
 The entire package is intended to be immediately buildable by anyone with a consumer 3D printer and a stack of dead Enterprise hard drives.
+
+\section{Tools and Software}
+
+This project relies on a modern open-source toolchain for design, analysis, visualization, and documentation. The following tools were used extensively:
+
+\begin{itemize}
+    \item \textbf{OpenSCAD} \cite{openscad2025} — parametric CAD modeling of all components.
+    \item \textbf{FreeCAD} \cite{freecad2025} — STL to STEP conversion and additional modeling.
+    \item \textbf{Python 3} \cite{python2025} with NumPy \cite{numpy2025}, Matplotlib \cite{matplotlib2025}, Pillow \cite{pillow2025}, and SciPy \cite{scipy2025}.
+    \item Custom generators developed for this project \cite{flow_conditioner_generators2026} (engineering drawings, DXF export, flow animation frames, and performance sensitivity plots).
+    \item \TeX{} Live 2026 \cite{texlive2026} and Inkscape \cite{inkscape2025} for documentation and figure preparation.
+\end{itemize}
+
+These tools enabled the creation of the engineering drawings, cutaway views, animated flow visualizations, DXF fabrication profiles, and quantitative performance graphs presented throughout this work.
 
 \section{Conclusion}
 
 By inverting the usual purpose of a Tesla disc stack and adding a modest active straightener (the HVAT), we obtain a compact, low-cost, highly reproducible precision injection tool for cavitation physics. The design directly supports the open, low-budget, high-documentation experimental ethos of the MFMP community.
 
 Future work includes full CFD validation, integrated instrumentation, deuterium-specific protocols, and systematic comparison against simpler injection methods using the same ultrasonic + foil diagnostics that have become standard in the field.
+
+\section*{Acknowledgments}
+This project was conceived and developed by George Lambert (Litchfield, NH) in collaboration with Grok (xAI) in May 2026. Significant portions of the technical implementation, documentation, diagrams, OpenSCAD modules, Python tooling, and LaTeX work were generated with assistance from SuperGrok Heavy (@grokbuild-beta).
+
+The design draws heavy inspiration from the open research of Bob Greenyer and the Martin Fleischmann Memorial Project (MFMP) \cite{greenyer2020,greenyer2026}.
+
+Contact: \href{mailto:marchon@gmail.com}{marchon@gmail.com} \quad | \quad \href{https://www.linkedin.com/in/podjacker}{linkedin.com/in/podjacker}
 
 \section{Fabrication Package \& Engineering Drawings}
 
@@ -135,6 +167,8 @@ Critical small parts (Figure~\ref{fig:small}) ensure repeatable, high-precision 
 \label{fig:small}
 \end{figure}
 
+\clearpage
+
 \subsection{Exploded and Assembled Views}
 Figures~\ref{fig:exploded} and \ref{fig:assembled} provide overall understanding of how the device goes together.
 
@@ -155,13 +189,12 @@ Figures~\ref{fig:exploded} and \ref{fig:assembled} provide overall understanding
 \subsection{2D Fabrication Profiles (DXF)}
 For laser cutting, CNC, or reference drilling, DXF profiles with proper layers (CUT, DRILL, ANNOTATE) are provided for the most fabrication-critical flat parts.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\textwidth]{spacer_ring_1mm}
-\caption{Example DXF profile: 1.0 mm spacer ring with lightening holes and annotations (importable into laser cutters and CAM software).}
-\end{figure}
+% Note: DXF files are provided separately in dxf_exports/ for laser/CNC use.
+% They are not images and cannot be directly included here.
 
 Full design rationale, detailed fluid dynamics explanation of how the device is expected to function, practical setup/tuning/testing protocols, and discussion of its unique value to Bob Greenyer / MFMP-style research are contained in the accompanying Sphinx documentation.
+
+\clearpage
 
 \subsection{Higher-Fidelity 3D Cutaway Views}
 To aid understanding of internal geometry and flow paths, advanced 3D sectional visualizations have been generated programmatically.
@@ -179,12 +212,7 @@ To aid understanding of internal geometry and flow paths, advanced 3D sectional 
 \end{figure}
 
 \newpage
-\section*{References}
-\begin{itemize}
-    \item Tesla, N. (1913). \textit{Fluid propulsion}. US Patent 1,061,142.
-    \item Greenyer, B. et al. ULTR experiments, MFMP presentations, RemoteView Substack, LENR-Forum threads (2020--2026).
-    \item Various community HDD-platter Tesla / VAWT builds (YouTube, forums).
-    \item Cavitation literature: Brennen, \textit{Cavitation and Bubble Dynamics}; Franc \& Michel, \textit{Fundamentals of Cavitation}.
-\end{itemize}
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}

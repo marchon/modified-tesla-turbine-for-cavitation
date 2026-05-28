@@ -1,0 +1,95 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--entry type for "tesla1913" isn't style-file defined
+--line 13 of file references.bib
+Warning--entry type for "greenyer2020" isn't style-file defined
+--line 54 of file references.bib
+Warning--entry type for "greenyer2023" isn't style-file defined
+--line 70 of file references.bib
+Warning--entry type for "openscad2025" isn't style-file defined
+--line 102 of file references.bib
+Warning--entry type for "matplotlib2025" isn't style-file defined
+--line 110 of file references.bib
+Warning--entry type for "numpy2025" isn't style-file defined
+--line 118 of file references.bib
+Warning--entry type for "pillow2025" isn't style-file defined
+--line 125 of file references.bib
+Warning--entry type for "texlive2026" isn't style-file defined
+--line 132 of file references.bib
+Warning--entry type for "savonius1925" isn't style-file defined
+--line 204 of file references.bib
+Warning--entry type for "darrieus1931" isn't style-file defined
+--line 212 of file references.bib
+Repeated entry---line 247 of file references.bib
+ : @software{numpy2025
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 255 of file references.bib
+ : @software{matplotlib2025
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 263 of file references.bib
+ : @software{pillow2025
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "scipy2025" isn't style-file defined
+--line 271 of file references.bib
+Warning--entry type for "flow_conditioner_generators2026" isn't style-file defined
+--line 279 of file references.bib
+Repeated entry---line 290 of file references.bib
+ : @software{openscad2025
+ :                       ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "freecad2025" isn't style-file defined
+--line 298 of file references.bib
+Warning--entry type for "inkscape2025" isn't style-file defined
+--line 306 of file references.bib
+Warning--entry type for "python2025" isn't style-file defined
+--line 322 of file references.bib
+Warning--I didn't find a database entry for "greenyer2026"
+Warning--empty journal in paraschivoiu2002
+You've used 22 entries,
+            2118 wiz_defined-function locations,
+            598 strings with 6326 characters,
+and the built_in function-call counts, 4909 in all, are:
+= -- 446
+> -- 194
+< -- 0
++ -- 84
+- -- 58
+* -- 206
+:= -- 834
+add.period$ -- 56
+call.type$ -- 22
+change.case$ -- 93
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 181
+empty$ -- 480
+format.name$ -- 58
+if$ -- 1038
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 9
+newline$ -- 103
+num.names$ -- 44
+pop$ -- 175
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 164
+stack$ -- 0
+substring$ -- 164
+swap$ -- 21
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 84
+warning$ -- 1
+while$ -- 48
+width$ -- 24
+write$ -- 203
+(There were 4 error messages)

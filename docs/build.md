@@ -15,6 +15,19 @@ The short version:
 
 **Important:** Print a few test spacers and a bearing bore test ring **before** doing the full job. Spacer thickness and bearing bore are the most critical dimensions.
 
+## Why This Design is Highly Replicable with Consumer 3D Printing
+
+Unlike many scientific instruments, this device was deliberately engineered for radical accessibility:
+
+- All structural parts are designed for standard FDM printers (no industrial equipment required for the basic version).
+- The `ASSEMBLY_JIG.scad` solves one of the hardest problems in stacked-disc devices: keeping gaps perfectly uniform and the stack straight.
+- Shipping inserts protect the precise gaps during transport.
+- Clear viewport option lets you visually verify the beautiful spiral flow during initial low-pressure air testing — extremely useful for debugging and education.
+- Calibration pieces are provided so you can validate your specific printer + filament combination before printing the real parts.
+- Two parallel designs exist: the high-performance HDD platter version and the very low-cost CD/DVD version.
+
+See the [Printing Guide](printing_guide.md) and [Tools and Software](tools_and_software.md) pages for much deeper information on materials, settings, and customization.
+
 **Required prints (default 25-platter config):**
 
 - 1 × Main housing + nozzles + diffuser (`HDD_Platter_Cavitation_Conditioner.scad`)

@@ -86,7 +86,9 @@ See `LICENSE` and `LICENSE-HARDWARE` for full text.
 
 ## Credits & References
 
-- Core concept and iterative design developed in conversation with Grok (xAI), May 2026.
+- Project conceived and developed by **George Lambert** (Litchfield, NH) in collaboration with Grok (xAI), May 2026.
+  - Email: marchon@gmail.com
+  - LinkedIn: [linkedin.com/in/podjacker](https://www.linkedin.com/in/podjacker)
 - Primary inspiration and target user: Bob Greenyer / Martin Fleischmann Memorial Project (MFMP) — ULTR experiments, EVOs, cavitation transmutation research.
 - Tesla turbine fundamentals: boundary-layer adhesion, inward spiral (classic literature + Wikipedia / research papers).
 - HDD platter builds: community examples from Tesla turbine / wind turbine hobbyists (polished platters ideal for low-Reynolds boundary layer work).
