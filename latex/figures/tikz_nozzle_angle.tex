@@ -1,0 +1,9 @@
+
+% tikz_nozzle_angle.tex
+\begin{tikzpicture}[scale=0.8]
+  \draw[thick] (0,0) arc (0:90:4);
+  \draw[->, blue, thick] (4,0) -- (4,1.5) node[above] {True tangent (0°)};
+  \draw[->, red, thick] (4,0) -- (3.7,1.8) node[above] {10° (recommended)};
+  \draw[green!60!black, thick] (4,0) arc (0:10:0.8);
+  \node at (4.8,0.6) {10°};
+\end{tikzpicture}
