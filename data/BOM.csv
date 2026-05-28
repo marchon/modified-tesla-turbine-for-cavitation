@@ -1,0 +1,26 @@
+Item,Quantity,Material,Notes,Source
+Enterprise 3.5" HDD platters (95 mm OD, ~0.9 mm thick),25,Aluminum (polished),Select matched thickness; clean with IPA,eBay / scrap drives (Enterprise models preferred)
+PETG or ABS filament (for all printed parts),~800 g,PETG preferred,0.2 mm layers, 25-40% infill, good bridging
+M3 or M4 stainless screws (30-60 mm long for clamping),12-16,Stainless steel,6-8 long for main clamp + extras for sensor mounts / covers,Hardware store
+M3/M4 nuts + washers,As needed,Stainless,For clamping and mounts
+Printed spacer rings (1.0 mm thick),24,PETG,Parametric in SPACER_RING.scad; lightening holes optional
+Printed shipping inserts (1.4 mm thick),26,PETG,Thicker for transport protection; replace with 1.0 mm spacers for operation
+Clear viewport plate (optional),1,Clear PETG,Allows visual observation of spiral flow during air tests
+Solid top/bottom covers (alternative to viewport),2,PETG,For shipping or when viewport not needed
+Assembly jig,1,PETG/PLA,Flat base + guide posts; critical for even stacking
+HVAT rotor (hybrid Savonius + helical Darrius),1,PETG,Print separately on central shaft; 28 mm nominal dia
+HVAT brake disc + caliper,1 set,PETG,For tunable swirl control
+608ZZ bearings (or ceramic upgrade),2,Standard skateboard,Press-fit into printed bearing housers; 8 mm ID
+5-8 mm carbon fiber or precision steel shaft,~80 mm length,Carbon fiber preferred,For HVAT rotor; cut to fit
+Printed bearing housers (upper + lower),2,PETG,With flanges and press-fit bore (+0.1 mm interference)
+Nozzle manifold (distributes to 6 tangential inlets),1,PETG,Print with hose barbs or print separate barbs
+Cavitation jet nozzle (Venturi body),1,PETG,Main body with removable orifice holder
+Orifice inserts (6/8/10/12 mm throat),4+,PETG or machined,Start with 8 mm; tune bubble intensity
+Sensor mounts (for pressure sensors),4,PETG,Fit MPX5700 or similar; 4 side ports
+6 mm ID silicone or PVC tubing,~1 m,Food-grade or chemical resistant,Manifold to nozzles
+Hose barbs / push-to-connect fittings,6-8,Brass or plastic,For inlet manifold
+Optional: 3D-printed or machined central diffuser extension,1,PETG,Longer bell-mouth for gentler expansion
+Optional base / stand,1,PETG/wood,For vertical bench mounting of the whole assembly
+Threaded inserts (M3/M4),As needed,Brass,For repeated assembly / disassembly of covers
+Thrust washer (thin, between HVAT top and upper bearing),1,PTFE or nylon,Reduces axial friction if needed
+Isopropyl alcohol (99%) for platter cleaning,500 ml+,Solvent,Critical first step before stacking

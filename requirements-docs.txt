@@ -1,0 +1,10 @@
+# Core docs build
+sphinx>=7.0
+furo>=2024.0
+myst-parser>=3.0
+sphinxcontrib-plantuml>=0.27
+
+# For Python models / diagram generation
+numpy
+matplotlib
+scipy

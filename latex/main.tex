@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+
+\title{\textbf{Precision Flow Conditioning for Hydrodynamic Cavitation Experiments}\\[0.4em]
+\large HDD Platter Tesla-Style Disc Stack with Optional Central HVAT}
+\author{Marchon \\ (design developed with Grok, xAI — May 2026)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+A fully parametric, low-cost, 3D-printable flow conditioner built from 25 polished Enterprise 3.5" HDD platters is presented. The device uses a stationary (or lightly braked) Tesla-style boundary-layer spiral to deliver highly uniform, low-turbulence gas or liquid injection into a cavitation chamber. An optional central Hybrid Vertical Axis Turbine (HVAT) rotor further organizes the exit flow. The design is optimized for repeatability in Greenyer/MFMP-style cavitation and LENR experiments (hydrodynamic + ultrasonic hybrids, bubble dynamics, foil erosion, gas evolution, and anomalous effects studies). Complete OpenSCAD sources, BOM, assembly instructions, and testing protocols are provided.
+\end{abstract}
+
+\section{Introduction}
+
+Standard Tesla turbines are boundary-layer devices that convert fluid kinetic energy into shaft torque via viscous drag on closely spaced smooth discs. The flow enters tangentially at the periphery and spirals inward to a central exhaust.
+
+In this work the same geometry is deliberately repurposed: the disc stack is run essentially stationary and its function is inverted — it becomes a precision \emph{flow conditioner} whose output is a clean, repeatable, multi-channel spiral jet ideally suited for controlled cavitation bubble generation.
+
+The motivation comes directly from open LENR/cavitation research (Bob Greenyer, Martin Fleischmann Memorial Project). Many of the most interesting effects (microsphere formation, anomalous elemental changes, ``strange radiation'', excess heat signatures) appear to depend sensitively on bubble size distribution, collapse intensity, and the presence of dissolved or injected gases (including deuterium). Crude injection methods introduce large run-to-run variability. A device that can deliver well-characterized, low-turbulence, tunable flow therefore has immediate scientific value.
+
+\section{Device Architecture}
+
+\subsection{Platter Stack}
+\begin{itemize}
+    \item 25 Enterprise 3.5'' HDD platters (95 mm OD, $\approx 0.9$ mm thick, mirror-polished)
+    \item Nominal 1.0 mm inter-platter gaps (24 printed spacer rings)
+    \item Active stack height $\approx 47$ mm
+\end{itemize}
+
+The highly polished surfaces and tight, uniform gaps create many parallel, low-Reynolds-number channels. Fluid entering from the tangential nozzles develops a strong inward spiral while remaining attached to the disc surfaces via the boundary-layer effect.
+
+\subsection{Tangential Nozzles}
+Six nozzles equally spaced around the periphery, oriented 8--12° from true tangential (10° default). This angle was found through iteration to give a vigorous yet stable spiral without excessive radial velocity or flow separation at the entry.
+
+\subsection{Central HVAT (Hybrid Vertical Axis Turbine)}
+A small (28 mm diameter) hybrid rotor (Savonius starting scoops + helical Darrius blades) is mounted on bearings in the central exhaust region. It is \emph{not} optimized for net power extraction. Instead it uses residual swirl energy to further straighten and organize the flow into a cleaner axial jet before the final diffuser and cavitation nozzle. The rotor can be left free, lightly braked (printed caliper), or driven.
+
+\subsection{Cavitation Nozzle}
+A Venturi-style converging-diverging nozzle with interchangeable orifice inserts (6/8/10/12 mm throat) accelerates the conditioned flow and creates the sharp pressure drop required for reproducible bubble inception immediately upstream of (or inside) the experimental chamber.
+
+\section{Key Equations}
+
+\textbf{Reynolds number in the gaps} (characteristic length = gap height):
+\[
+Re = \frac{\rho v g}{\mu}
+\]
+where $g$ is the inter-platter gap, $v$ the local velocity.
+
+\textbf{Cavitation number} at the nozzle exit:
+\[
+\sigma = \frac{p_\text{static} - p_\text{vapor}}{\frac{1}{2}\rho v^2}
+\]
+Typical inception for sharp orifices occurs for $\sigma \lesssim 2$--3 depending on geometry and dissolved gas content.
+
+\textbf{Approximate spiral velocity scaling} (order-of-magnitude from continuity + boundary layer considerations):
+\[
+v_\theta(r) \approx v_\text{nozzle} \cdot \frac{r_\text{nozzle}}{r} \cdot f(\text{gap}, \text{Re})
+\]
+
+Full quantitative modeling requires CFD on the actual STL geometry.
+
+\section{Open Source Deliverables}
+
+All design artifacts are released under appropriate open licenses (CERN OHL-S-2 for hardware, MIT for software/docs):
+
+\begin{itemize}
+    \item Parametric OpenSCAD files (main housing, HVAT blades, spacers, jigs, sensor mounts, full cavitation nozzle with orifice family)
+    \item Complete BOM (see \texttt{data/BOM.csv})
+    \item Step-by-step assembly instructions and testing protocol for Greenyer-style experiments
+    \item Python engineering models (Reynolds, cavitation number, rough velocity estimates)
+    \item This document + accompanying Sphinx site
+\end{itemize}
+
+The entire package is intended to be immediately buildable by anyone with a consumer 3D printer and a stack of dead Enterprise hard drives.
+
+\section{Conclusion}
+
+By inverting the usual purpose of a Tesla disc stack and adding a modest active straightener (the HVAT), we obtain a compact, low-cost, highly reproducible precision injection tool for cavitation physics. The design directly supports the open, low-budget, high-documentation experimental ethos of the MFMP community.
+
+Future work includes full CFD validation, integrated instrumentation, deuterium-specific protocols, and systematic comparison against simpler injection methods using the same ultrasonic + foil diagnostics that have become standard in the field.
+
+\section*{References}
+\begin{itemize}
+    \item Tesla, N. (1913). \textit{Fluid propulsion}. US Patent 1,061,142.
+    \item Greenyer, B. et al. ULTR experiments, MFMP presentations, RemoteView Substack, LENR-Forum threads (2020--2026).
+    \item Various community HDD-platter Tesla / VAWT builds (YouTube, forums).
+    \item Cavitation literature: Brennen, \textit{Cavitation and Bubble Dynamics}; Franc \& Michel, \textit{Fundamentals of Cavitation}.
+\end{itemize}
+
+\end{document}
