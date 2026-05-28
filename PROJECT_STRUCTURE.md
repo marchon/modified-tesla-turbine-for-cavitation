@@ -30,6 +30,13 @@ Modified-Tesla-Turbine-For-Cavitation/
 │   ├── Bearing_Bore_Calibration.scad
 │   ├── Nozzle_Throat_Calibration.scad
 │   └── Flatness_Test_Plate.scad
+│
+├── fabrication/                         # Professional fabrication support (PCBWay and similar services)
+│   ├── RECOMMENDED_QUOTE_PACKAGE.md     # Start here - combined guide for getting quotes
+│   └── pcbway/                          # PCBWay-specific documents
+│       ├── PCBWay_Design_Spec_and_Upload_Guide.md   # General (3D printing + CNC)
+│       ├── PCBWay_CNC_Metal_Spec.md                 # CNC metal focused
+│       └── ZIP_Contents_for_Upload.txt
 │   ├── HDD_Platter_Cavitation_Conditioner.scad   # Main housing + 6 tangential nozzles (~10°) + HVAT hub + diffuser (parametric master)
 │   ├── HVAT_BLADES.scad                 # Hybrid Savonius + helical Darrius rotor (active flow straightener, not power extractor)
 │   ├── BEARING_HOUSERS.scad             # Upper & lower 608ZZ bearing housers with flanges (press-fit + mounting)
